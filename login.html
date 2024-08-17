@@ -19,10 +19,46 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
+    <!--   <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      </div> -->
     </div>
+
+<!-- ponemos div id para vincularlo con login.html -->
+    <div id="login"></div>
+
+  </div>
+
+<div >
+  <div class="imagenportada">
+    <img class="imagen" src="img/cover_back.png" width="600" > <br>
+  </div>
+  <div class="botones">
+
+    <input type="password" class="form-control" id="completar" placeholder="*Nombre de usuario*" required> <br>
+    <input type="password" class="form-control" id="completar2" placeholder="*Contraseña*" required> <br>
+  </div>
+  
+  <div>
+    <button class="Ingresar" type="button" id="ingresar">Ingresar</button>
+  </div>
+  
+</div>
+
+
+<div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+  <p>Datos guardados correctamente</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+  <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+</div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

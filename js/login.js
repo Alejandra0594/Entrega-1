@@ -9,18 +9,18 @@ function showAlertError() {
 }
 
 function iniciar(){
-    const iniciar = document.getElementById ("iniciar");
-    iniciar.innerHTML = '';
+    const iniciar = document.getElementById ("botones");
 
-
-    var nombre = document.getElementById("nombre").value.trim();
-    var contrseña = document.getElementById("contraseña").value.trim();
+    var nombre = document.getElementById("completar").value.trim();
+    var contrseña = document.getElementById("completar2").value.trim();
 
     if(!nombre || !contrseña) {
         showAlertError();
         return;
     }
 
+      showAlertSuccess();
+
 }
 
-document.getElementById("login").addEventListener("click", iniciar); 
+document.getElementById("ingresar").addEventListener("click", iniciar); 

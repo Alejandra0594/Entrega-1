@@ -1,0 +1,14 @@
+background {
+    color: #884A88(131, 9, 131)
+}
+
+.jumbotron {
+    height: 50vh;
+    padding: 5em inherit;
+    margin-bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    font-weight: bold;
+  }

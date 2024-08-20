@@ -9,31 +9,38 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/estilos.css" rel="stylesheet">
+  <link href="css/loginestilo.css" rel="stylesheet"> 
+  
   <style>
     body {
-      background-color: rgb(248, 249, 250);
+      background: linear-gradient(0deg,rgb(244, 181, 107) 30%, rgb(248, 226, 185) 90% );
     }
+
   </style>
 </head>
 
 <body>
+  
   <main class="mt-5">
-    <div class="container">
-    </div>
+    
+    <div class="cuadrado">
+
+    
 
 <!-- ponemos div id para vincularlo con login.html -->
     <div id="login"></div>
 
-  </div>
+   
 
 <div >
   <div class="imagenportada">
-    <img class="imagen" src="img/cover_back.png" width="600" > <br>
+   <img class="imagen" src="img/cover_back.png" width="600" > <br> 
   </div>
   <div class="botones">
 
-    <input type="password" class="form-control" id="completar" placeholder="*Nombre de usuario*" required> <br>
-    <input type="password" class="form-control" id="completar2" placeholder="*Contraseña*" required> <br>
+    <input type="password" class="form-control" id="completar" placeholder= "*Nombre de usuario*" required><br>
+    <input type="password" class="form-control1" id="completar2" placeholder= "*Contraseña*" required><br>
   </div>
   
   <div>
@@ -52,6 +59,7 @@
   <p>Debe completar todos los campos</p>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+</div>
 
 <div id="volver">
   <a href="index.html">Volver al inicio</a>
@@ -63,9 +71,9 @@
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
+        <a class="enlace" href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p class="pp">Este sitio forma parte de <a class="enlace" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
   <script src="js/login.js"></script>

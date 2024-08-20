@@ -11,19 +11,24 @@ body{
   }
   
   #product-list {
-    
     padding: 8px
   }
 
- .iauto
-
- {
+ .iauto {
     display: center;
    
  }
+ .rectangulo {
+  width: 200px; /* Ancho del rectángulo */
+  height: 100px; /* Alto del rectángulo */
+  background: linear-gradient(0deg, rgb(223, 192, 124) 20% , rgb(240, 193, 38) 70%)   /* Color de fondo del rectángulo */
+  position: absolute; /* Permite posicionar el rectángulo con respecto al contenedor */
+  top: 50%; /* Posición desde el borde superior */
+  left: 50%; /* Posición desde el borde izquierdo */
+  transform: translate(-50%, -50%); /* Centra el rectángulo horizontal y verticalmente */
+}
 
-
- #product-list.jumbotron {
+ /* #product-list.jumbotron {
     height: 50vh;
     padding: 5em inherit;
     margin-bottom: 0;
@@ -34,6 +39,9 @@ body{
     color: rgb(199, 122, 169);
     font-weight: bold;
   }
-
+ */
 
   #product-list { display: grid; grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */ gap: 20px; /* Espacio entre las tarjetas */ margin: 20px; /* Margen alrededor del contenedor */ } .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+
+  }

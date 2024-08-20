@@ -37,9 +37,6 @@
   
     
 }
-input{
-    color: rgb(244,181,107);
-}
 
 .form-control1{
     
@@ -55,6 +52,11 @@ input{
     border-radius: 50px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
    
+}
+
+
+input::placeholder{
+    color: rgb(244,181,107);
 }
 .imagen{
     border-top-left-radius: 25px;

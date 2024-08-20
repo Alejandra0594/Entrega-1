@@ -1,14 +1,13 @@
-background {
-    color: #884A88(131, 9, 131);
+#product-list {
+    background-color: #884A88
 }
 
-.jumbotron {
+#navbarNav.jumbotron {
     height: 50vh;
     padding: 5em inherit;
     margin-bottom: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: rgb(49, 1, 49);
-    font-weight: bold;
+    color: violet
   }

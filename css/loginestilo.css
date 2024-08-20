@@ -1,3 +1,75 @@
-.botones{
-    background-color: aqua;
+.pp{
+    color:rgb(248,226,185) ;
 }
+.enlace{
+    color: white;
+}
+.Ingresar{
+    color: white;
+   border:rgb(248,226,185);
+    font-weight: 100;
+    font-size: 20px;
+    font-style: light italic;
+    text-align: center;
+    background-color: rgb(244,181,107);
+    width: 268px;
+    height: 80px;
+    margin-top: 50px;
+    margin-left: 350px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  
+    
+}
+.form-control{
+    border:rgb(248,226,185);
+    font-weight: 100;
+    font-size: 20px;
+    font-style: light italic;
+    text-align: center;
+    background-color: rgb(248,226,185);
+    width: 575px;
+    height: 80px;
+    margin-top: 50px;
+    margin-left: 200px;
+   border-radius: 50px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  
+    
+}
+input{
+    color: rgb(244,181,107);
+}
+
+.form-control1{
+    
+    border:rgb(248,226,185);
+    font-weight: 100;
+    font-size: 20px;
+    font-style: light italic;
+    text-align: center;
+    background-color: rgb(248,226,185);
+    width: 575px;
+    height: 80px;
+    margin-left: 200px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+   
+}
+.imagen{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 974px;
+    height: 217px;
+}
+
+.cuadrado{
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 150px;
+    width: 974px;
+    height: 660px;
+    background: linear-gradient(0deg, white 10% , rgb(248, 226, 185) 70%)
+} 

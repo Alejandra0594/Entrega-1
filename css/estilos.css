@@ -1,13 +1,40 @@
-#product-list {
-    background-color: #884A88
+body{
+
+    background-color: rgb(109, 37, 109);
+
 }
 
-#navbarNav.jumbotron {
+ #product-list {
+    display: flex;
+    float: center;
+    width: 100%;
+    
+  }
+  
+  #product-list {
+    
+    padding: 8px
+  }
+
+ .iauto
+
+ {
+    display: center;
+   
+ }
+
+
+ #product-list.jumbotron {
     height: 50vh;
     padding: 5em inherit;
     margin-bottom: 0;
+   
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: violet
+    color: rgb(199, 122, 169);
+    font-weight: bold;
   }
+
+
+  #product-list { display: grid; grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */ gap: 20px; /* Espacio entre las tarjetas */ margin: 20px; /* Margen alrededor del contenedor */ } .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }

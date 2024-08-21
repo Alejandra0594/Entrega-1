@@ -3,45 +3,37 @@ body{
 
 }
 
- #product-list {
-    display: flex;
-    float: center;
-    width: 100%;
-    
-  }
-  
-  #product-list {
-    padding: 8px
-  }
 
- .iauto {
-    display: center;
-   
- }
- .rectangulo {
-  width: 200px; /* Ancho del rectángulo */
-  height: 100px; /* Alto del rectángulo */
-  background: linear-gradient(0deg, rgb(223, 192, 124) 20% , rgb(240, 193, 38) 70%)   /* Color de fondo del rectángulo */
-  position: absolute; /* Permite posicionar el rectángulo con respecto al contenedor */
-  top: 50%; /* Posición desde el borde superior */
-  left: 50%; /* Posición desde el borde izquierdo */
-  transform: translate(-50%, -50%); /* Centra el rectángulo horizontal y verticalmente */
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
+  gap: 20px; /* Espacio entre columnas y filas */
+  padding: 20px;
 }
 
- /* #product-list.jumbotron {
-    height: 50vh;
-    padding: 5em inherit;
-    margin-bottom: 0;
-   
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: rgb(199, 122, 169);
-    font-weight: bold;
-  }
- */
+.product-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
-  #product-list { display: grid; grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */ gap: 20px; /* Espacio entre las tarjetas */ margin: 20px; /* Margen alrededor del contenedor */ } .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.product-item img {
+  max-width: 100%;
+  border-radius: 4px;
+}
 
+.product-item .card-body {
+  padding: 10px 0;
+}
 
-  }
+.product-item h5 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+}
+
+.product-item p {
+  margin: 5px 0;
+}

@@ -25,6 +25,24 @@ body{
   border-radius: 4px;
 }
 
+/* Edito Dayna */
+ .rectangulo{
+  background-color:(0deg, #f9f9f9(189, 62, 206) 20% ,  #ddd(184, 6, 207) 70%)
+}
+.tabla1 {
+  border-collapse: separate; /* Asegura que border-spacing funcione */
+  border-spacing: 10px; /* Espacio entre celdas */
+  width: 50%;
+}
+
+.tabla2 {
+  border-collapse: separate; /* Asegura que border-spacing funcione */
+  border-spacing: 10px; /* Espacio entre celdas */
+  width: 50%;
+/*   background-color: #A63EA6; */
+}
+/* Edito Dayna */
+
 .product-item .card-body {
   padding: 10px 0;
 }
@@ -38,6 +56,7 @@ body{
   margin: 5px 0;
 }
 
+
 .rectangulo {
   background: linear-gradient(90deg, white,violet);       /* Fondo de color azul */
   border: 3px solid #a09494; /* Borde color negro y de 3 píxeles de grosor */
@@ -45,3 +64,4 @@ body{
   width: 881px;           /* Ancho de 250 píxeles */
   height: 127px;          /* Alto de 150 píxeles */
 }
+

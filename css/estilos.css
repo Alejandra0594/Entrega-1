@@ -37,3 +37,11 @@ body{
 .product-item p {
   margin: 5px 0;
 }
+
+.rectangulo {
+  background: linear-gradient(90deg, white,violet);       /* Fondo de color azul */
+  border: 3px solid #a09494; /* Borde color negro y de 3 píxeles de grosor */
+  border-radius:  30px;
+  width: 881px;           /* Ancho de 250 píxeles */
+  height: 127px;          /* Alto de 150 píxeles */
+}

@@ -9,17 +9,20 @@ function showAlertError() {
 }
 
 function iniciar(){
-    const iniciar = document.getElementById ("botones");
+    const username = document.getElementById('nombre_usuario').value;
+    const password = document.getElementById('contraseña_usuario').value;
 
-    var nombre = document.getElementById("completar").value.trim();
-    var contrseña = document.getElementById("completar2").value.trim();
-
-    if(!nombre || !contrseña) {
+    if (username && password) {
+        // Si inició sesión
+        sessionStorage.setItem('sesion', 'true');
+        // lo mando al index.html
+        window.location.href = 'index.html';
+    } else  {
         showAlertError();
         return;
     }
-
-      showAlertSuccess();
+        
+    
 
 }
 

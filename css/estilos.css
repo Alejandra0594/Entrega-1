@@ -1,114 +1,111 @@
 body{
-    background: linear-gradient(0deg, rgb(189, 62, 206) 20% , rgb(184, 6, 207) 70%)
-
+  background: linear-gradient(0deg, rgb(189, 62, 206) 20% , rgb(184, 6, 207) 70%)
 }
 
-
-
 .product-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
-  gap: 20px; /* Espacio entre columnas y filas */
-  padding: 20px;
+display: grid;
+grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
+gap: 20px; /* Espacio entre columnas y filas */
+padding: 20px;
 }
 
 .product-item {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-sizing: border-box;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 10px;
+box-sizing: border-box;
 }
 
 .product-item img {
-  max-width: 100%;
-  border-radius: 4px;
+max-width: 100%;
+border-radius: 4px;
 }
 
 /* Edito Dayna */
- .rectangulo{
-  background-color:(0deg, #f9f9f9(189, 62, 206) 20% ,  #ddd(184, 6, 207) 70%)
-}
+/*  .rectangulo{
+background-color:(0deg, #f9f9f9(189, 62, 206) 20% ,  #ddd(184, 6, 207) 70%)
+} */
 .tabla1 {
-  border-collapse: separate; /* Asegura que border-spacing funcione */
-  border-spacing: 10px; /* Espacio entre celdas */
-  width: 50%;
+border-collapse: separate; /* Asegura que border-spacing funcione */
+border-spacing: 10px; /* Espacio entre celdas */
+width: 50%;
 }
 
 .tabla2 {
-  border-collapse: separate; /* Asegura que border-spacing funcione */
-  border-spacing: 10px; /* Espacio entre celdas */
-  width: 50%;
+border-collapse: separate; /* Asegura que border-spacing funcione */
+border-spacing: 10px; /* Espacio entre celdas */
+width: 50%;
 /*   background-color: #A63EA6; */
 }
 /* Edito Dayna */
 
 .product-item .card-body {
-  padding: 10px 0;
+padding: 10px 0;
 }
 
 .product-item h5 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
+margin: 0 0 10px;
+font-size: 1.25rem;
 }
 
 .product-item p {
-  margin: 5px 0;
+margin: 5px 0;
 }
 
 
-.rectangulo {
-  background: linear-gradient(90deg, white,violet);       /* Fondo de color azul */
-  border: 3px solid #a09494; /* Borde color negro y de 3 píxeles de grosor */
-  border-radius:  30px;
-  width: 827px;           /* Ancho de 250 píxeles */
-  height: 150px;          /* Alto de 150 píxeles */
-  display:inline-table;
+.text-muted {
+background: linear-gradient(90deg, white,violet);     /*   Fondo de color azul
+border: 3px solid #a09494; Borde color negro y de 3 píxeles de grosor
+border-radius:  30px; */
+/*   width: 100%;       /    /  Ancho de 250 píxeles */
+height: 17em;         /*  Alto de 150 píxeles */
+/*   display:inline-table; */
 }
 
 
 
-.imgauto{
-  
-  display: inline-table;
-  padding: 80px  10px;
-  width: 250%;
+/* .imgauto{
 
-}
+display: inline-table;
+padding: 80px  10px;
+width: 250%;
+
+} */
 
 .tabla-contacto {
-  display: table;
-  width: 80%;
-  border-collapse: collapse;
-  margin: 20px 0;
+display: table;
+width: 80%;
+border-collapse: collapse;
+margin: 20px 0;
 }
 
 .fila {
-  
-  display: right;
+
+display: right;
 }
 
 .columna {
-  display:table-cell;
-  padding: 5px 5px;
-  text-align: center;
+display:table-cell;
+padding: 5px 5px;
+text-align: center;
 }
 
 .tabla-contacto
 {
 
-  font: 25px light italic;
-   ;
+font: 25px light italic;
+ ;
 }
 
 
- h1{
+h1{
 
-  color: #A63EA6;
+color: #A63EA6;
 
 }
 
 h4 {
 
-  color: #A63EA6;
+color: #A63EA6;
 }

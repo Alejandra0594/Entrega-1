@@ -61,7 +61,54 @@ body{
   background: linear-gradient(90deg, white,violet);       /* Fondo de color azul */
   border: 3px solid #a09494; /* Borde color negro y de 3 píxeles de grosor */
   border-radius:  30px;
-  width: 881px;           /* Ancho de 250 píxeles */
-  height: 127px;          /* Alto de 150 píxeles */
+  width: 827px;           /* Ancho de 250 píxeles */
+  height: 150px;          /* Alto de 150 píxeles */
+  display:inline-table;
 }
 
+
+
+.imgauto{
+  
+  display: inline-table;
+  padding: 80px  10px;
+  width: 250%;
+
+}
+
+.tabla-contacto {
+  display: table;
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.fila {
+  
+  display: right;
+}
+
+.columna {
+  display:table-cell;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+.tabla-contacto
+{
+
+  font: 25px light italic;
+   ;
+}
+
+
+ h1{
+
+  color: #A63EA6;
+
+}
+
+h4 {
+
+  color: #A63EA6;
+}

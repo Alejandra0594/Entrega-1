@@ -21,7 +21,8 @@
   
     
 }
-.form-control{
+/* .form-control{
+    color: #FA861A;
     border:rgb(248,226,185);
     font-weight: 100;
     font-size: 20px;
@@ -36,10 +37,10 @@
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   
     
-}
+} */
 
-.form-control1{
-    
+.form-control{
+    color: #FA861A;
     border:rgb(248,226,185);
     font-weight: 100;
     font-size: 20px;
@@ -53,10 +54,14 @@
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
    
 }
-
+ #nombre_usuario{
+    margin-top: 50px;
+    color: #FA861A;
+}
+ 
 
 input::placeholder{
-    color: rgb(244,181,107);
+    color: #FA861A;
 }
 .imagen{
     border-top-left-radius: 25px;

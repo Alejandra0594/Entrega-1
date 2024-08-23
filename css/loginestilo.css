@@ -4,6 +4,10 @@
 .enlace{
     color: white;
 }
+#volver{
+color: beige;
+}
+
 .Ingresar{
     color: white;
    border:rgb(248,226,185);
@@ -59,7 +63,13 @@
     color: #FA861A;
 }
  
+#nombre_usuario::placeholder{
+    color: #FA861A;
+}
 
+#contraseña_usuario::placeholder{
+    color: #FA861A;
+}
 input::placeholder{
     color: #FA861A;
 }

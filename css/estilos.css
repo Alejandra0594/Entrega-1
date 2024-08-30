@@ -1,6 +1,4 @@
-/*  body{
-  background: linear-gradient(0deg, rgb(189, 62, 206) 20% , rgb(184, 6, 207) 70%)
-}  */
+
 
  /* .product-list {
 display: grid; */
@@ -46,13 +44,6 @@ background: linear-gradient(90deg, white,violet);
 
 
 
-.imgauto{
-
-display: inline-table;
-padding: 80px  10px;
-width: 250%;
-
-}
 
 .tabla-contacto {
 display: table;
@@ -97,9 +88,9 @@ body {
 
 .product-list {
   /* display: grid; */
-  grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
-  gap: 1em; /* Espacio entre columnas y filas */
-  padding: 2em;
+  grid-template-columns: repeat(2, 1fr);  /* Establece dos columnas de igual ancho */
+  grid-gap: 2% 3%;
+  padding: 1em;
   display: grid;
   flex-wrap: wrap; 
   justify-content: center;
@@ -110,9 +101,9 @@ body {
 .product-item {
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 2em;
+  border-radius: 1em;
   padding: 20px;
-  width: 250px;
+  width: 90%;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -157,7 +148,7 @@ body {
 
 
 /* Resolución Estándar: 1366 x 768 px */
-@media (min-width: 1366px) and (max-width: 1920px) {
+@media only screen and (min-width: 1366px) and (max-width: 768px) {
   .product-item {
       width: 300px;
   }
@@ -175,8 +166,8 @@ body {
       gap: 20px; /* Espacio entre columnas y filas */
       padding: 20px;
       }
+      
      .fila {
-    
       display: auto;
       } 
       
@@ -207,25 +198,27 @@ body {
 }
 
 /* Tableta en Modo Vertical: 768 x 1024 px */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .product-list {
       flex-direction: row;
       justify-content: space-around;
-  }
+  } 
   .text-muted {
     background: linear-gradient(90deg, white,violet);
-    border: 3px solid #a09494;  /*Borde color negro y de 3 píxeles de grosor */
+  
     width: 100%;          /*  Ancho de 250 píxeles */
-    height: 17em;         /*  Alto de 150 píxeles */
-    display:inline-table; 
+    height: 3em;         /*  Alto de 150 píxeles */
+    display: table;
+  /*   display:inline-table;  */
  } 
     
   
   .product-list {
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
-    gap: 10%; /* Espacio entre columnas y filas */
-    padding: 20px;
+    grid-gap: 1% 10%;
+    padding: 20px; 
+   
     }
 
    .fila {
@@ -258,21 +251,74 @@ body {
 }
 
 /* Smartphone Pequeño (Ej. iPhone SE): 320 x 568 px */
-@media (max-width: 568px) {
-  .product-list {
-      flex-direction: column;
-      align-items: center;
-  }
+@media only screen and (min-width: 320px) and (max-width: 568px) {
+
+
+
 
   .product-item {
+   
       width: 100%;
-      margin-bottom: 15px;
+      height: 100%;
+     /*  margin-bottom: 15px; */
   }
 
   .product-list {
+    /* grid-gap: 3% 5%; */
+      
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
-    gap: 20px; /* Espacio entre columnas y filas */ 
-    padding: 20px;
+    grid-template-columns: repeat(1, 1fr); /* Establece dos columnas de igual ancho */
+     gap: 20px; /* Espacio entre columnas y filas */ 
+     /* padding: 20px; */
     } 
+    .product-item .card-body{
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .fila {
+      font-size: 0.8em;
+      display: table;
+     margin-right: 1em; 
+      } 
+      
+       .columna {
+        font-size: 0.009;
+      display:table-cell;
+      /* 
+      padding: 5px 5px; */
+      text-align: center;
+      }
+
+      .text-muted {
+        font-size: 1em;
+        background: linear-gradient(90deg, white,violet);
+      
+        width: 100%;          /*  Ancho de 250 píxeles */
+        height: 3em;         /*  Alto de 150 píxeles */
+        display: table;
+      /*   display:inline-table;  */
+     } 
+     h1{
+      display: auto;
+     margin-right: 1em;
+      font-size: 0.8em;
+      color: #A63EA6;
+      
+      }
+      
+      h4 {
+ margin-right: 1em;
+        font-size: 0.8em;
+      
+      color: #A63EA6;
+      } 
+
+      p {
+        font-size: 0.69em;
+      }
+
+      .arriba {
+        font-size: 0.69em;
+      }
 }

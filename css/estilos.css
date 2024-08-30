@@ -1,83 +1,65 @@
-body{
+/*  body{
   background: linear-gradient(0deg, rgb(189, 62, 206) 20% , rgb(184, 6, 207) 70%)
-}
+}  */
 
-.product-list {
-display: grid;
-grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
-gap: 20px; /* Espacio entre columnas y filas */
-padding: 20px;
-}
+ /* .product-list {
+display: grid; */
+/* grid-template-columns: repeat(2, 1fr); */ /* Establece dos columnas de igual ancho */
+/* gap: 20px; */ /* Espacio entre columnas y filas */
+/* padding: 20px;
+}  */
 
-.product-item {
+/*  .product-item {
 background-color: #f9f9f9;
 border: 1px solid #ddd;
 border-radius: 8px;
 padding: 10px;
 box-sizing: border-box;
-}
-
-.product-item img {
+} */
+ 
+/*  .product-item img {
 max-width: 100%;
 border-radius: 4px;
-}
+} 
 
-/* Edito Dayna */
-/*  .rectangulo{
-background-color:(0deg, #f9f9f9(189, 62, 206) 20% ,  #ddd(184, 6, 207) 70%)
-} */
-.tabla1 {
-border-collapse: separate; /* Asegura que border-spacing funcione */
-border-spacing: 10px; /* Espacio entre celdas */
-width: 50%;
-}
-
-.tabla2 {
-border-collapse: separate; /* Asegura que border-spacing funcione */
-border-spacing: 10px; /* Espacio entre celdas */
-width: 50%;
-/*   background-color: #A63EA6; */
-}
-/* Edito Dayna */
 
 .product-item .card-body {
 padding: 10px 0;
-}
+} 
 
 .product-item h5 {
 margin: 0 0 10px;
 font-size: 1.25rem;
 }
 
-.product-item p {
+ .product-item p {
 margin: 5px 0;
-}
+}  */
 
 
 .text-muted {
-background: linear-gradient(90deg, white,violet);     /*   Fondo de color azul
-border: 3px solid #a09494; Borde color negro y de 3 píxeles de grosor
-border-radius:  30px; */
-/*   width: 100%;       /    /  Ancho de 250 píxeles */
-height: 17em;         /*  Alto de 150 píxeles */
-/*   display:inline-table; */
+background: linear-gradient(90deg, white,violet);
+  width: 100%;         
+ height: 17em;       
+  display:inline-table;
 }
 
 
 
-/* .imgauto{
+.imgauto{
 
 display: inline-table;
 padding: 80px  10px;
 width: 250%;
 
-} */
+}
 
 .tabla-contacto {
 display: table;
 width: 80%;
 border-collapse: collapse;
 margin: 20px 0;
+font: 25px light italic;
 }
 
 .fila {
@@ -91,14 +73,6 @@ padding: 5px 5px;
 text-align: center;
 }
 
-.tabla-contacto
-{
-
-font: 25px light italic;
- ;
-}
-
-
 h1{
 
 color: #A63EA6;
@@ -108,4 +82,197 @@ color: #A63EA6;
 h4 {
 
 color: #A63EA6;
+} 
+
+/* De acá para arriba  */
+
+/* Estilos generales para la página */
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(0deg, rgb(189, 62, 206) 20% , rgb(184, 6, 207) 70%);
+  color: #333;
+}
+
+/* Estilos para la lista de productos */
+
+.product-list {
+  /* display: grid; */
+  grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
+  gap: 1em; /* Espacio entre columnas y filas */
+  padding: 2em;
+  display: grid;
+  flex-wrap: wrap; 
+  justify-content: center;
+  
+}
+
+/* Estilo para cada producto */
+.product-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2em;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la imagen del producto */
+.product-item img {
+  width: 100%;
+        height: 100%;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+/* Estilos para los textos y botones */
+.product-item h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.product-item .btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.product-item .card-body {
+  text-align: left;
+}
+
+
+
+
+
+
+/* Resolución Estándar: 1366 x 768 px */
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .product-item {
+      width: 300px;
+  }
+  .text-muted {
+    background: linear-gradient(90deg, white,violet);
+    border: 3px solid #a09494;  /*Borde color negro y de 3 píxeles de grosor */
+    width: 100%;          /*  Ancho de 250 píxeles */
+    height: 17em;         /*  Alto de 150 píxeles */
+    display:inline-table; 
+ } 
+    
+     .product-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Establece dos columnas de igual ancho */
+      gap: 20px; /* Espacio entre columnas y filas */
+      padding: 20px;
+      }
+     .fila {
+    
+      display: auto;
+      } 
+      
+       .columna {
+        margin: 5em;
+      display:table-cell;
+      padding: 5px 5px;
+      text-align: left;
+      }
+      .product-item  {
+        width: 100%;
+        height: 100%;
+        padding: 10px 0;
+        border-radius: 10%;
+        }
+
+        .product-item img {
+          max-width: 90%;
+          border-radius: 10%;
+          margin-top: 5%;
+          }
+         
+          .product-item .card-body {
+            text-align: left;
+          }
+
+
+}
+
+/* Tableta en Modo Vertical: 768 x 1024 px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product-list {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  .text-muted {
+    background: linear-gradient(90deg, white,violet);
+    border: 3px solid #a09494;  /*Borde color negro y de 3 píxeles de grosor */
+    width: 100%;          /*  Ancho de 250 píxeles */
+    height: 17em;         /*  Alto de 150 píxeles */
+    display:inline-table; 
+ } 
+    
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
+    gap: 10%; /* Espacio entre columnas y filas */
+    padding: 20px;
+    }
+
+   .fila {
+    display: auto;
+    } 
+    
+     .columna {
+      margin: 5em;
+    display:table-cell;
+    padding: 5px 5px;
+    text-align: left;
+    }
+    .product-item  {
+      width: 110%;
+      height: 90%;
+      padding: 15px 0;
+      border-radius: 10%;
+      
+      }
+
+      .product-item img {
+        max-width: 90%;
+        border-radius: 10%;
+        margin-top: 5%;
+        }
+       
+        .product-item .card-body {
+          text-align: left;
+        }
+}
+
+/* Smartphone Pequeño (Ej. iPhone SE): 320 x 568 px */
+@media (max-width: 568px) {
+  .product-list {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .product-item {
+      width: 100%;
+      margin-bottom: 15px;
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Establece dos columnas de igual ancho */
+    gap: 20px; /* Espacio entre columnas y filas */ 
+    padding: 20px;
+    } 
 }

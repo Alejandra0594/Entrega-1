@@ -283,7 +283,7 @@ body {
       } 
       
        .columna {
-        font-size: 0.009;
+        font-size: 0.009em;
       display:table-cell;
       /* 
       padding: 5px 5px; */

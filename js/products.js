@@ -37,7 +37,7 @@ function showProducts() {
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">${product.name} - ${product.currency} ${product.cost}</h4>
-                            <small class="text-muted">${product.soldCount} vendidos</small>
+                            <small class="">${product.soldCount} vendidos</small>
                         </div>
                         <p class="mb-1">${product.description}</p>
                     </div>
@@ -59,9 +59,8 @@ function fetchProducts(CatID) {
         .then(data => {
             currentProductsArray = data.products;
             showProducts(); // Mostrar productos iniciales
-          //  document.getElementById('catName').innerHTML = data.catName; //comente porque daba error 
+          
         })
-//        .catch(error => console.error('Hubo un problema con la solicitud Fetch:', error));// daba error 
 }
 
 // Función para establecer el ID del producto en el localStorage y redirigir a la página de información del producto
@@ -70,11 +69,6 @@ function setProductID(id) {
     window.location = "product-info.html";
 }
 
-// * Entrega 3 pau*/
- /* para guardar el identificador en Local Storage *///Función que se ejecuta una vez que el documento está completamente cargado
-/*document.addEventListener("DOMContentLoaded", () => {
-    let categoryId = localStorage.getItem('catID') || 101;
-    fetchProducts(categoryId);*/
     
     //Parte 1 Sofi
  document.addEventListener("DOMContentLoaded", () => {
@@ -87,6 +81,8 @@ function setProductID(id) {
   
     fetchProducts(categoryId);
   });
+
+  //Parte 2 Pau
 
     document.getElementById('sortAsc').addEventListener('click', () => {
         currentSortCriteria = ORDER_ASC_BY_NAME;
@@ -119,6 +115,10 @@ function setProductID(id) {
         document.getElementById('rangeFilterCountMax').value = '';
         showProducts();
     });
+
+
+  
+
 
 
   

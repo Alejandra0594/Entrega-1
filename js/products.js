@@ -51,7 +51,7 @@ function showProducts(searchTerm = "") {
     document.getElementById("product-list").innerHTML = htmlContentToAppend;
 }
 
-// Función para obtener los datos de productos desde la API
+// Función para obtener los datos de productos desde la API, Parte1
 function fetchProducts(CatID) {
     const url = `https://japceibal.github.io/emercado-api/cats_products/${CatID}.json`;
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let categoryId = localStorage.getItem('catID');
 
     if (!categoryId) {
-        categoryId = 101; // Usar 101 como predeterminado si no hay ID en el localStorage
+        categoryId = 102; // Usar 101 como predeterminado si no hay ID en el localStorage
         console.warn('No se encontró un categoryId en localStorage. Usando el ID 101 por defecto.');
     }
 

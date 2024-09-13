@@ -29,12 +29,12 @@ function mostrarInfoProduct(product) {
     for (let image of product.images) {
         //creo un div para cada imagen nueva
         let thumbDiv = document.createElement("div");
-        thumbDiv.className = "col-2";  //se le asigna los estilos de bootstrap para que se vea bien cada imagen nueva
+        thumbDiv.className = "col-2 mb-2";  //se le asigna los estilos de bootstrap para que se vea bien cada imagen nueva
 
         //creo la imagen nueva 
         let thumbnail = document.createElement("img");
         thumbnail.src = image;  //fuente de la imagen
-        thumbnail.className = "img-thumbnail";  //esticos de bootstrap para que se vea bien
+        thumbnail.className = "img-thumbnail img-fluid";  //esticos de bootstrap para que se vea bien
         thumbnail.alt = "Miniatura del producto";  //txt por si llega a fallar la imagen
 
         //agrego la imagen al div

@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalles del Producto - eMercado</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet"> -->
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/estilos.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" 
   referrerpolicy="no-referrer" />
 </head>
@@ -41,26 +42,39 @@
   <main class="container">
     <!-- Sección para los detalles del producto -->
     <div class="product-info">
-      <div class="row">
-        <div class="col-md-6">
-          <!-- Imagen principal del producto -->
-          <img src="" class="img-fluid main-image" alt="Imagen del Producto">
-        </div>
-        <div class="col-md-6">
-          <h1 class="product-title">Nombre del Producto</h1>
-          <p class="category-name">Categoría</p>
-          <p class="sold-count">Vendidos: 0 unidades</p>
-          <p class="product-price">Precio</p>
-          <p class="product-description">Descripción del Producto</p>
-        </div>
-      </div>
+        <div class="row">
+            <!-- Columna para la imagen principal -->
+            <div class="col-md-8">
+              <p class="category-name">Categoría</p>
+                <!-- Imagen principal del producto -->
+                <img src="" class="img-fluid main-image" alt="Imagen del Producto">
+                
+            </div>
 
-      <!-- Thumbnails de imágenes adicionales -->
-      <div class="row product-thumbnails mt-4">
-        <!-- Las miniaturas de las imágenes se insertarán aquí dinámicamente -->
-      </div>
+            <!-- Columna para las miniaturas -->
+            <div class="col-md-4">
+                <div class="row product-thumbnails mt-4">
+                    <!-- Las miniaturas de las imágenes se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+            <p class="sold-count">Vendidos: 0 unidades</p>
+        </div>
+
+        <!-- Información del producto (debajo de la imagen grande y miniaturas) -->
+        <div class="row mt-4">
+            <div class="col-12">
+            <div class="pretitulo">
+               <span class="product-price">Precio</span>
+                <p class="product-title">Nombre del Producto</p>
+                
+            </div>
+            </div>
+            <p class="product-description">Descripción del Producto</p>
+        </div>
     </div>
-  </main>
+    <button> COMPRAR </button>
+    
+</main>
 
   <footer class="text-muted mt-4">
     <div class="container">

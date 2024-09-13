@@ -1,0 +1,82 @@
+body{
+    background-color: white;
+}
+.container {
+    padding: 2%;
+}
+
+p{
+   font-style: italic;
+}
+  
+.product-thumbnails {
+    margin-bottom: 20px;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;  /* Alinear las miniaturas en una columna */
+    gap: 15px;  /* Espacio entre las miniaturas */
+    max-width: 100%;
+}
+
+.product-thumbnails img {
+
+    min-width: 160px;
+    min-height: auto;
+    cursor: pointer;  /* Mostrar un puntero para hacer las miniaturas clicables */
+    object-fit: contain;  /* Mantiene la proporción de la imagen y recorta si es necesario */
+    border: 1px solid #ddd;  /* Un pequeño borde para que luzcan bien */
+    border-radius: 5px;  /* Bordes ligeramente redondeados */
+}
+
+.main-image {
+    float: left;
+  margin-right: 15px;
+    max-width: 120%;
+    max-height: 200%;
+    height: auto;
+    object-fit: cover;  /* Mantener proporciones sin distorsionar */
+}
+.category-name {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 80%; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    margin-bottom: 330px; /* Espacio entre el texto y la imagen */
+}
+.product-price{
+    font-size: 200%;
+    margin-right: 550px;
+    float: right;
+}
+.product-title{
+    font-size: 250%;
+    margin-left: 40px;
+}
+
+.sold-count {
+    margin-left: 50px;
+    font-size: 70%;
+}
+.col-md-8{ 
+
+  display: flex;
+  align-items: center;
+
+}
+.product-description {
+    margin-left: 40px;
+
+}
+button {
+    margin-left: 40px;
+    font-size: 30px;
+    width: 302px;
+    height: 65px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+/*     border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 45%; */
+    background-color: rgb(217, 217,217);
+}

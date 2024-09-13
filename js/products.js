@@ -1,28 +1,27 @@
 // Definición de constantes para los criterios de ordenamiento
-const ORDER_ASC_BY_NAME = "AZ";  
-const ORDER_DESC_BY_NAME = "ZA"; 
+const ORDER_ASC_BY_NAME = "AZ";  // Ordenar por precio ascendente
+const ORDER_DESC_BY_NAME = "ZA"; // Ordenar por precio descendente
 const ORDER_BY_PROD_COUNT = "Cant."; // Ordenar por cantidad vendida
 
 // Variables globales para manejar el estado
 let currentProductsArray = [];
 let currentSortCriteria = undefined;
-
+let minPrice = undefined;
+let maxPrice = undefined;
 
 // Función para ordenar productos según el criterio seleccionado
 function sortProducts(criteria, array) {
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME) {
-        // Ordenar por nombre ascendente
-        result = array.sort((a, b) => a.name.localeCompare(b.name));
+        result = array.sort((a, b) => a.cost - b.cost); // Ordenar por precio ascendente
     } else if (criteria === ORDER_DESC_BY_NAME) {
-        // Ordenar por nombre descendente
-        result = array.sort((a, b) => b.name.localeCompare(a.name));
+        result = array.sort((a, b) => b.cost - a.cost); // Ordenar por precio descendente
     } else if (criteria === ORDER_BY_PROD_COUNT) {
-        // Ordenar por cantidad vendida
-        result = array.sort((a, b) => b.soldCount - a.soldCount);
+        result = array.sort((a, b) => b.soldCount - a.soldCount); // Ordenar por cantidad vendida
     }
     return result;
 }
+
 // Función para mostrar productos en la página
 function showProducts(searchTerm = "") {
     let htmlContentToAppend = "";
@@ -52,7 +51,7 @@ function showProducts(searchTerm = "") {
     document.getElementById("product-list").innerHTML = htmlContentToAppend;
 }
 
-// Parte 1 Sofi ,Función para obtener los datos de productos desde la API
+// Función para obtener los datos de productos desde la API, Parte1
 function fetchProducts(CatID) {
     const url = `https://japceibal.github.io/emercado-api/cats_products/${CatID}.json`;
 
@@ -70,17 +69,17 @@ function setProductID(id) {
     window.location = "product-info.html";
 }
 
+// Manejo de eventos al cargar la página PARTE 1 SOFI
 document.addEventListener("DOMContentLoaded", () => {
     let categoryId = localStorage.getItem('catID');
 
     if (!categoryId) {
-        categoryId = 101; // Usar 101 como predeterminado si no hay ID en el localStorage
+        categoryId = 102; // Usar 101 como predeterminado si no hay ID en el localStorage
         console.warn('No se encontró un categoryId en localStorage. Usando el ID 101 por defecto.');
     }
 
     fetchProducts(categoryId);
 });
-
 
 // Manejo de eventos de los botones de orden PARTE 2 PAU
 document.getElementById('sortAsc').addEventListener('click', () => {
@@ -101,10 +100,6 @@ document.getElementById('sortByCount').addEventListener('click', () => {
     showProducts(document.getElementById('searchInput').value.toLowerCase());
 });
 
-
-let minPrice = undefined;
-let maxPrice = undefined;
-
 // Manejo de eventos para el filtrado por precio
 document.getElementById('rangeFilterCount').addEventListener('click', () => {
     minPrice = parseFloat(document.getElementById('rangeFilterCountMin').value) || undefined;
@@ -124,4 +119,3 @@ document.getElementById('clearRangeFilter').addEventListener('click', () => {
 document.getElementById('searchInput').addEventListener('input', () => {
     showProducts(document.getElementById('searchInput').value.toLowerCase());
 });
-

@@ -5,9 +5,9 @@ body{
     padding: 2%;
 }
 
-p{
+/*p{
    font-style: italic;
-}
+}*/
   
 .product-thumbnails {
     margin-bottom: 20px;
@@ -16,6 +16,7 @@ p{
     flex-direction: column;  /* Alinear las miniaturas en una columna */
     gap: 15px;  /* Espacio entre las miniaturas */
     max-width: 100%;
+    border-color: black;
 }
 
 .product-thumbnails img {
@@ -26,7 +27,9 @@ p{
     object-fit: contain;  /* Mantiene la proporción de la imagen y recorta si es necesario */
     border: 1px solid #ddd;  /* Un pequeño borde para que luzcan bien */
     border-radius: 5px;  /* Bordes ligeramente redondeados */
+    border-color: black;
 }
+
 
 .main-image {
     float: left;
@@ -35,7 +38,15 @@ p{
     max-height: 200%;
     height: auto;
     object-fit: cover;  /* Mantener proporciones sin distorsionar */
+  
 }
+
+
+.img-fluid.main-image {
+    border: 1px solid black;  /* Aplica un borde negro */
+    border-radius: 5px;  /* Bordes ligeramente redondeados */
+}
+
 .category-name {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
@@ -45,7 +56,7 @@ p{
 }
 .product-price{
     font-size: 200%;
-    margin-right: 550px;
+    margin-right: 565px;
     float: right;
 }
 .product-title{
@@ -80,3 +91,38 @@ button {
     border-bottom-right-radius: 45%; */
     background-color: rgb(217, 217,217);
 }
+
+
+
+
+.body  {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+  button {
+    margin-left: 40px;
+    font-size: 30px;
+    width: 302px;
+    height: 65px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgb(217, 217, 217);
+    color: grey;
+}
+  .div.row.mt-4 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+
+  p.product-title {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+
+  

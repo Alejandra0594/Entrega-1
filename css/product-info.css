@@ -20,8 +20,8 @@ body{
 }
 
 .product-thumbnails img {
-
-    min-width: 160px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    min-width: 168px;
     min-height: auto;
     cursor: pointer;  /* Mostrar un puntero para hacer las miniaturas clicables */
     object-fit: contain;  /* Mantiene la proporción de la imagen y recorta si es necesario */
@@ -32,6 +32,7 @@ body{
 
 
 .main-image {
+
     float: left;
   margin-right: 15px;
     max-width: 120%;
@@ -43,6 +44,7 @@ body{
 
 
 .img-fluid.main-image {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
     border: 1px solid black;  /* Aplica un borde negro */
     border-radius: 5px;  /* Bordes ligeramente redondeados */
 }
@@ -55,16 +57,18 @@ body{
     margin-bottom: 330px; /* Espacio entre el texto y la imagen */
 }
 .product-price{
-    font-size: 200%;
-    margin-right: 565px;
+    margin-top: 9px;
+    font-size: 250%;
+    margin-right: 500px;
     float: right;
 }
 .product-title{
-    font-size: 250%;
+    font-size: 300%;
     margin-left: 40px;
 }
 
 .sold-count {
+    margin-top: 5px;
     margin-left: 50px;
     font-size: 70%;
 }

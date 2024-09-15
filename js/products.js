@@ -6,8 +6,8 @@ function setProductID(id) {
 
 
 // Definición de constantes para los criterios de ordenamiento
-const ORDER_ASC_BY_NAME = "AZ";  // Ordenar por precio ascendente
-const ORDER_DESC_BY_NAME = "ZA"; // Ordenar por precio descendente
+const ORDER_ASC_BY_NAME = "AZ";  
+const ORDER_DESC_BY_NAME = "ZA"; 
 const ORDER_BY_PROD_COUNT = "Cant."; // Ordenar por cantidad vendida
 
 // Variables globales para manejar el estado
@@ -20,15 +20,17 @@ let maxPrice = undefined;
 function sortProducts(criteria, array) {
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME) {
-        result = array.sort((a, b) => a.cost - b.cost); // Ordenar por precio ascendente
+        // Ordena por nombre ascendente
+        result = array.sort((a, b) => a.name.localeCompare(b.name));
     } else if (criteria === ORDER_DESC_BY_NAME) {
-        result = array.sort((a, b) => b.cost - a.cost); // Ordenar por precio descendente
+        // Ordena por nombre descendente
+        result = array.sort((a, b) => b.name.localeCompare(a.name));
     } else if (criteria === ORDER_BY_PROD_COUNT) {
-        result = array.sort((a, b) => b.soldCount - a.soldCount); // Ordenar por cantidad vendida
+        // Ordena por cantidad vendida
+        result = array.sort((a, b) => b.soldCount - a.soldCount);
     }
     return result;
 }
-
 // Función para mostrar productos en la página
 function showProducts(searchTerm = "") {
     let htmlContentToAppend = "";

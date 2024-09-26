@@ -1,74 +1,129 @@
-//var que guarda la data del producto
+// Variable que guarda la data del producto
 let productoActual = {};
 
-//funcion para mostrar la data del producto
+// Función para mostrar la data del producto
 function mostrarInfoProduct(product) {
-    //titulo del producto
+    // Título del producto
     document.querySelector(".product-title").textContent = product.name;
 
-    //categoria del producto
+    // Categoría del producto
     document.querySelector(".category-name").textContent = `Categoría: ${product.category}`;
 
-    //unidades vendidas
+    // Unidades vendidas
     document.querySelector(".sold-count").textContent = `${product.soldCount} vendidos`;
 
-    //precio del producto
+    // Precio del producto
     document.querySelector(".product-price").textContent = `${product.currency} ${product.cost}`;
 
-    //desc del producto
+    // Descripción del producto
     document.querySelector(".product-description").textContent = product.description;
 
-    //imagen principal 
+    // Imagen principal 
     document.querySelector(".main-image").src = product.images[0];
 
-    //por si hay imagenes adicionales
+    // Por si hay imágenes adicionales
     let thumbnailsContainer = document.querySelector(".product-thumbnails");
     thumbnailsContainer.innerHTML = "";
 
-    //recorro este array de imagenes para mostrarlas
+    // Recorro este array de imágenes para mostrarlas
     for (let image of product.images) {
-        //creo un div para cada imagen nueva
         let thumbDiv = document.createElement("div");
-        thumbDiv.className = "col-2";  //se le asigna los estilos de bootstrap para que se vea bien cada imagen nueva
+        thumbDiv.className = "col-2";
 
-        //creo la imagen nueva 
         let thumbnail = document.createElement("img");
-        thumbnail.src = image;  //fuente de la imagen
-        thumbnail.className = "img-thumbnail";  //esticos de bootstrap para que se vea bien
-        thumbnail.alt = "Miniatura del producto";  //txt por si llega a fallar la imagen
+        thumbnail.src = image;
+        thumbnail.className = "img-thumbnail";
+        thumbnail.alt = "Miniatura del producto";
 
-        //agrego la imagen al div
         thumbDiv.appendChild(thumbnail);
-
-        //agrego el div al contenedor de las miniaturas
         thumbnailsContainer.appendChild(thumbDiv);
     }
 }
 
-//funcion que accede a la API para obtener la data del producto
-function fetchProductInfo(productId) {
-    //url de la API con el id del producto
-    const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+// Paso 2,parte 2 Función para mostrar los comentarios
+function mostrarComentarios(comentarios) {
+    const reviewsContainer = document.getElementById('reviews');
+    reviewsContainer.innerHTML = ''; // Limpiar contenido previo
 
-    //se hace la peticion a la API y se obtienen los datos del producto
-    fetch(url)
-        .then(response => response.json())  //convierto la respuesta a JSON
-        .then(data => {
-            productoActual = data;  //hago uso de la variable productoActual para guardar la data del producto
-            mostrarInfoProduct(productoActual);  //muestro la data del producto con la funcion mostrarInfoProduct
-        })
-        .catch(error => console.error("Error al obtener los datos del producto:", error));  //por si falla la peticion a la API
+    if (!comentarios || comentarios.length === 0) {
+        reviewsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
+        return;
+    }
+
+    comentarios.forEach(comentario => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+
+        reviewElement.innerHTML = `
+            <div class="review-header">
+                <div class="review-rating">${'★'.repeat(comentario.score)}${'☆'.repeat(5 - comentario.score)}</div>
+                <div class="review-user-date">
+                    <span class="review-user">${comentario.user}</span>
+                    <span class="review-date">${new Date(comentario.dateTime).toLocaleDateString()}</span>
+                </div>
+            </div>
+            <div class="review-comment">${comentario.description}</div>
+        `;
+
+        reviewsContainer.appendChild(reviewElement);
+        
+    });
 }
 
-//funcion que se ejecuta cuando se carga la pagina
+
+
+// Paso 3 parte 2,Dentro de la función fetchProductInfo, se añadió la llamada a mostrarComentarios para pasar el array de comentarios del producto,
+// Función que accede a la API para obtener la data del producto
+function fetchProductInfo(productId) {
+    const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            productoActual = data; // Guardar la data del producto
+            mostrarInfoProduct(productoActual); // Mostrar la data del producto
+            mostrarComentarios(productoActual.comments); // Mostrar comentarios
+        })
+        .catch(error => console.error("Error al obtener los datos del producto:", error));
+}
+
+// Función que se ejecuta cuando se carga la página
 document.addEventListener("DOMContentLoaded", () => {
-    //obtengo el id del producto desde el localStorage
     let productId = localStorage.getItem("id");
 
-    //compuebo si hay un id en el localStorage
     if (productId) {
-        fetchProductInfo(productId);  //si hay un id, llamo a la funcion fetchProductInfo con el id
+        fetchProductInfo(productId); // Llamar a la función con el ID
     } else {
-        console.warn("No se encontró un ID de producto en localStorage.");  //si no hay, muestro un mensaje de advertencia
+        console.warn("No se encontró un ID de producto en localStorage."); // Mensaje de advertencia
     }
 });
+ //desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
+document.getElementById("submit-review").addEventListener("click", function() {
+    const rating = document.querySelector('input[name="rating"]:checked');
+    const comment = document.getElementById("comment").value;
+    const username = document.getElementById("username").value || "Usuario Anónimo"; // Usa un nombre por defecto si está vacío
+    
+    if (rating && comment) {
+        const newComment = {
+            score: parseInt(rating.value),
+            description: comment,
+            user: username, // Utiliza el nombre ingresado por el usuario
+            dateTime: new Date().toISOString()
+        };
+
+        if (!productoActual.comments) {
+            productoActual.comments = [];
+        }
+
+        productoActual.comments.push(newComment);
+        mostrarComentarios(productoActual.comments);
+
+        // Limpiar el formulario
+        document.querySelector('input[name="rating"]:checked').checked = false;
+        document.getElementById("comment").value = '';
+        document.getElementById("username").value = ''; // Limpiar el campo de nombre
+    } else {
+        alert("Por favor, selecciona una calificación y escribe un comentario.");
+    }
+});
+

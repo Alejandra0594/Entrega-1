@@ -3,22 +3,18 @@
 
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>eMercado - Todo lo que busques está aquí</title>
 
-  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet"> -->
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/estilos.css" rel="stylesheet">
   <link href="css/product-info.css" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" 
-  referrerpolicy="no-referrer" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -39,15 +35,11 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main>
 
- 
   <main class="container">
     <!-- Sección para los detalles del producto -->
     <div class="product-info">
@@ -55,9 +47,8 @@
             <!-- Columna para la imagen principal -->
             <div class="col-md-8">
               <p class="category-name">Categoría</p>
-                <!-- Imagen principal del producto -->
-                <img src="" class="img-fluid main-image" alt="Imagen del Producto">
-                
+              <!-- Imagen principal del producto -->
+              <img src="" class="img-fluid main-image" alt="Imagen del Producto">
             </div>
 
             <!-- Columna para las miniaturas -->
@@ -66,27 +57,62 @@
                     <!-- Las miniaturas de las imágenes se insertarán aquí dinámicamente -->
                 </div>
             </div>
-            <p class="sold-count">Vendidos: 50 unidades</p>
         </div>
+        <p class="sold-count">Vendidos: 50 unidades</p>
 
         <!-- Información del producto (debajo de la imagen grande y miniaturas) -->
         <div class="row mt-4">
             <div class="col-12">
-            <div class="pretitulo">
-               <span class="product-price">Precio</span>
-                <p class="product-title">Nombre del Producto</p>
-                
-            </div>
+                <div class="pretitulo">
+                   <span class="product-price">Precio</span>
+                   <p class="product-title">Nombre del Producto</p>
+                </div>
             </div>
             <p class="product-description">Descripción del Producto</p>
         </div>
     </div>
     <button> COMPRAR </button>
-    
-</main>
 
+    <!--Paso 1 Parte 2 Añadí un contenedor para los comentarios,Sección de calificaciones y comentarios -->
+
+    <div class="container mt-5">
+      <h4>Calificaciones y Comentarios</h4>
+  
+      <!--Paso 1 parte 3 Sección para las calificaciones -->
+      <div class="rating-container">
+          <h5>¿Cómo calificarías este producto?</h5>
+          <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5" class="star">★</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4" class="star">★</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3" class="star">★</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2" class="star">★</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1" class="star">★</label>
+          </div>
+      </div>
+      
+<!--Desafiate paso 1  nombre y comentario-->
+<div class="mt-3">
+  <input type="text" id="username" placeholder="Escribe tu nombre aquí..." class="form-control" />
+  <textarea id="comment" placeholder="Escribe tu comentario aquí..." rows="3" class="form-control mt-2"></textarea>
+  <button id="submit-review" class="btn btn-primary mt-2">Enviar Comentario</button>
+</div>
+
+
+    <!--Paso 1 parte 3-->
+      <div id="reviews" class="mt-4">
+          <!-- Los comentarios se insertarán aquí dinámicamente -->
+      </div>
+  </div>
+  
+  </main>
+
+  
   <footer class="text-muted mt-4">
-
     <div class="container">
       <div id="product-details" class="my-5">
         <!-- Aquí se mostrará la información del producto -->
@@ -95,10 +121,9 @@
         <p id="cost"></p>
       </div>
     </div>
-    
-  </main>
-  <footer class="text-muted">
+  </footer>
 
+  <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
@@ -106,6 +131,7 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -114,6 +140,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>

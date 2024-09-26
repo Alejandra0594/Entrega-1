@@ -128,5 +128,37 @@ button {
     font-weight: weight;
     font-style: normal;
   }
-
+  .rating-container {
+    margin-top: 20px;
+}
   
+
+/*paso 2 parte 3 */
+.star-rating {
+    direction: rtl; /* Para mostrar las estrellas de derecha a izquierda */
+}
+
+.star {
+    font-size: 30px; /* Tamaño de las estrellas */
+    color: #ccc; /* Color por defecto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre las estrellas */
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #f39c12; /* Color al pasar el mouse */
+}
+
+input[type="radio"] {
+    display: none; /* Oculta los botones de radio */
+}
+
+input[type="radio"]:checked ~ .star {
+    color: #f39c12; /* Color de la estrella seleccionada */
+}
+
+
+
+.review-rating {
+    font-size: 1.5em; /* Tamaño de las estrellas */
+}

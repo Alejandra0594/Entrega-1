@@ -150,4 +150,35 @@ document.getElementById("submit-review").addEventListener("click", function() {
         alert("Por favor, selecciona una calificación y escribe un comentario.");
     }
 });
+// Función para mostrar los productos relacionados en el HTML
+function mostrarProductosRelacionados(relatedProducts) {
+    const barra = document.getElementById('barra-productos');
+    barra.innerHTML = ''; // Limpiar contenido previo
 
+    relatedProducts.forEach(product => {
+        const divProducto = document.createElement('div');
+        divProducto.classList.add('producto');
+        divProducto.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" style="width: 100px;">
+            <h3>${product.name}</h3>
+           
+        `;
+        
+        // Evento clic para cargar el producto relacionado
+        divProducto.addEventListener('click', () => {
+            // Guardar el ID del producto en localStorage y redirigir a product-info.html
+            localStorage.setItem('id', product.id);
+            window.location.href = "product-info.html"; // Redirigir a la página de detalles del producto
+        });
+
+        barra.appendChild(divProducto);
+    });
+}
+
+// Llamar a la función fetchRelatedProducts al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    const productId = localStorage.getItem("id");
+    if (productId) {
+        fetchRelatedProducts(productId); // Obtener productos relacionados al cargar la página
+    }
+});

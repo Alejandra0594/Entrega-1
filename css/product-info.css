@@ -162,3 +162,79 @@ input[type="radio"]:checked ~ .star {
 .review-rating {
     font-size: 1.5em; /* Tamaño de las estrellas */
 }
+/* Dayna  Estilo para barra de productos relacionados*/
+/* Estilos generales para la sección */
+.related-products {
+    padding: 20px;
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 40px;
+  }
+  
+  .related-products h2 {
+    font-size: 24px;
+    color: #333; /* Texto oscuro pero no completamente negro */
+    margin-bottom: 20px; /* Espacio inferior */
+    text-align: center;
+  }
+  
+  /* Estilos para la barra de productos */
+  .barra-productos {
+    display: grid; /* Layout de cuadrícula */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustable al tamaño de pantalla */
+    gap: 20px; /* Espacio entre productos */
+    margin-top: 20px;
+  }
+  
+  .barra-productos .producto {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra en productos */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .barra-productos .producto:hover {
+    transform: translateY(-5px); /* Efecto hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
+  }
+  
+  .barra-productos img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .barra-productos .producto h3 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .barra-productos .producto p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .barra-productos .producto .precio {
+    font-size: 16px;
+    color: #e67e22;
+    font-weight: bold;
+  }
+  
+  .barra-productos .producto button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .barra-productos .producto button:hover {
+    background-color: #d35400; /* Cambia color en hover */
+  }

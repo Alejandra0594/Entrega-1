@@ -117,6 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+// Función para guardar el ID del producto y redirigir
+function guardarProductoId(id) {
+    localStorage.setItem("id", id);
+    window.location.href = "product-info.html"; // Redirigir a la página de detalles del producto
+}
+
 //desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
 document.getElementById("submit-review").addEventListener("click", function() {
     const rating = document.querySelector('input[name="rating"]:checked');
@@ -150,6 +157,20 @@ document.getElementById("submit-review").addEventListener("click", function() {
         alert("Por favor, selecciona una calificación y escribe un comentario.");
     }
 });
+//Chiara
+// Función para obtener los productos relacionados desde la API
+function fetchRelatedProducts(productId) {
+    const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const relatedProducts = data.relatedProducts; // Obtener los productos relacionados
+            mostrarProductosRelacionados(relatedProducts);
+        })
+        .catch(error => console.error("Error al obtener los productos relacionados:", error));
+}
+
 // Función para mostrar los productos relacionados en el HTML
 function mostrarProductosRelacionados(relatedProducts) {
     const barra = document.getElementById('barra-productos');

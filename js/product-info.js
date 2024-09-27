@@ -39,11 +39,14 @@ function mostrarInfoProduct(product) {
         thumbnailsContainer.appendChild(thumbDiv);
     }
 }
-
 // Paso 2,parte 2 Función para mostrar los comentarios
-function mostrarComentarios(comentarios) {
+function mostrarComentarios(comentarios, clear = true) {
     const reviewsContainer = document.getElementById('reviews');
-    reviewsContainer.innerHTML = ''; // Limpiar contenido previo
+
+    // Solo limpiar el contenedor si es la primera vez (cuando clear = true)
+    if (clear) {
+        reviewsContainer.innerHTML = ''; // Limpiar contenido previo
+    }
 
     if (!comentarios || comentarios.length === 0) {
         reviewsContainer.innerHTML = '<p>No hay comentarios disponibles.</p>';
@@ -65,12 +68,22 @@ function mostrarComentarios(comentarios) {
             <div class="review-comment">${comentario.description}</div>
         `;
 
+        // Añadir cada comentario debajo de los existentes
         reviewsContainer.appendChild(reviewElement);
-        
     });
 }
 
+// Función para obtener los comentarios desde la API
+function fetchProductComments(productId) {
+    const commentsUrl = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
 
+    fetch(commentsUrl)
+        .then(response => response.json())
+        .then(comments => {
+            mostrarComentarios(comments);  // Mostrar los comentarios obtenidos
+        })
+        .catch(error => console.error("Error al obtener los comentarios:", error));
+}
 
 // Paso 3 parte 2,Dentro de la función fetchProductInfo, se añadió la llamada a mostrarComentarios para pasar el array de comentarios del producto,
 // Función que accede a la API para obtener la data del producto
@@ -82,7 +95,7 @@ function fetchProductInfo(productId) {
         .then(data => {
             productoActual = data; // Guardar la data del producto
             mostrarInfoProduct(productoActual); // Mostrar la data del producto
-            mostrarComentarios(productoActual.comments); // Mostrar comentarios
+            fetchProductComments(productId); // Obtener y mostrar comentarios
         })
         .catch(error => console.error("Error al obtener los datos del producto:", error));
 }
@@ -91,13 +104,20 @@ function fetchProductInfo(productId) {
 document.addEventListener("DOMContentLoaded", () => {
     let productId = localStorage.getItem("id");
 
+    // Pre-cargar el nombre del usuario si está en localStorage
+    const savedUsername = localStorage.getItem("username");
+    if (savedUsername) {
+        document.getElementById("username").value = savedUsername;
+    }
+
     if (productId) {
         fetchProductInfo(productId); // Llamar a la función con el ID
     } else {
         console.warn("No se encontró un ID de producto en localStorage."); // Mensaje de advertencia
     }
 });
- //desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
+
+//desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
 document.getElementById("submit-review").addEventListener("click", function() {
     const rating = document.querySelector('input[name="rating"]:checked');
     const comment = document.getElementById("comment").value;
@@ -115,13 +135,17 @@ document.getElementById("submit-review").addEventListener("click", function() {
             productoActual.comments = [];
         }
 
+        // Almacenar el nombre del usuario en localStorage
+        localStorage.setItem("username", username);
+
+        // Añadir el nuevo comentario al final de la lista
         productoActual.comments.push(newComment);
-        mostrarComentarios(productoActual.comments);
+        mostrarComentarios([newComment], false); // Insertar sin limpiar los comentarios anteriores
 
         // Limpiar el formulario
         document.querySelector('input[name="rating"]:checked').checked = false;
         document.getElementById("comment").value = '';
-        document.getElementById("username").value = ''; // Limpiar el campo de nombre
+        // No limpiar el campo de nombre ya que lo queremos persistente
     } else {
         alert("Por favor, selecciona una calificación y escribe un comentario.");
     }

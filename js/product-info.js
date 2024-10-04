@@ -134,10 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let productId = localStorage.getItem("id");
 
     // Pre-cargar el nombre del usuario si está en localStorage
-    const savedUsername = localStorage.getItem("username");
-    if (savedUsername) {
-        document.getElementById("username").value = savedUsername;
-    }
+    //const savedUsername = localStorage.getItem("username");
+    //if (savedUsername) {
+        //document.getElementById("username").value = savedUsername;
+    //}
 
     if (productId) {
         fetchProductInfo(productId); // Llamar a la función con el ID
@@ -154,16 +154,19 @@ function guardarProductoId(id) {
 }
 
 //desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
+// Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
 document.getElementById("submit-review").addEventListener("click", function() {
     const rating = document.querySelector('input[name="rating"]:checked');
     const comment = document.getElementById("comment").value;
-    const username = document.getElementById("username").value || "Usuario Anónimo"; // Usa un nombre por defecto si está vacío
-    
+
+    // Cambia esto para usar "Usuario Anónimo" como nombre por defecto
+    const username = "Usuario Anónimo"; // Nombre por defecto
+
     if (rating && comment) {
         const newComment = {
             score: parseInt(rating.value),
             description: comment,
-            user: username, // Utiliza el nombre ingresado por el usuario
+            user: username, // Utiliza el nombre predeterminado
             dateTime: new Date().toISOString()
         };
 
@@ -171,8 +174,8 @@ document.getElementById("submit-review").addEventListener("click", function() {
             productoActual.comments = [];
         }
 
-        // Almacenar el nombre del usuario en localStorage
-        localStorage.setItem("username", username);
+        // No hay necesidad de almacenar el nombre en localStorage ya que lo hemos eliminado
+        // localStorage.setItem("username", username); // Esto se elimina
 
         // Añadir el nuevo comentario al final de la lista
         productoActual.comments.push(newComment);
@@ -186,6 +189,8 @@ document.getElementById("submit-review").addEventListener("click", function() {
         alert("Por favor, selecciona una calificación y escribe un comentario.");
     }
 });
+
+
 //Chiara
 // Función para obtener los productos relacionados desde la API
 function fetchRelatedProducts(productId) {

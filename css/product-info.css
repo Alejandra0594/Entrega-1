@@ -238,3 +238,42 @@ input[type="radio"]:checked ~ .star {
   .barra-productos .producto button:hover {
     background-color: #d35400; /* Cambia color en hover */
   }
+
+
+
+
+
+
+  /* Estilo para las estrellas, Sofi */
+  .rating {
+    direction: rtl;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3px; /* Espacio más reducido entre estrellas */
+  }
+
+  .rating input {
+    display: none; /* Ocultar los radio buttons */
+  }
+
+  .rating label {
+    font-size: 1rem; /* Tamaño de las estrellas*/
+    color: #999; /* Un gris oscuro para las estrellas no seleccionadas */
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+  }
+
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input:checked ~ label {
+    color: #d4af37; /* Color de las estrellas*/
+  }
+
+  .rating input:checked + label {
+    color: #d4af37;
+  }
+
+  .rating label:active {
+    transform: scale(1.05); /* Transformación más sutil al hacer clic */
+  }
+

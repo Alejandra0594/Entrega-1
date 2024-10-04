@@ -53,6 +53,7 @@ function mostrarComentarios(comentarios, clear = true) {
         return;
     }
 
+    /* Estrellas para comentarios, estilo viejo 
     comentarios.forEach(comentario => {
         const reviewElement = document.createElement('div');
         reviewElement.classList.add('review');
@@ -67,11 +68,39 @@ function mostrarComentarios(comentarios, clear = true) {
             </div>
             <div class="review-comment">${comentario.description}</div>
         `;
+ */
+        // Añadir cada comentario debajo de los existentes
+     /*    reviewsContainer.appendChild(reviewElement);
+    });*/
 
+
+    /* Otra forma para las estrellas, Sofi */
+    comentarios.forEach(comentario => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+    
+        // Crear la calificación con las estrellas de la misma manera que en el formulario
+        reviewElement.innerHTML = `
+            <div class="review-header">
+                <div class="review-rating rating">
+                    ${[...Array(5)].map((_, i) => `
+                        <label class="fa fa-star" style="color: ${i < comentario.score ? '#d4af37' : '#999'};"></label>
+                    `).join('')}
+                </div>
+                <div class="review-user-date">
+                    <span class="review-user">${comentario.user}</span>
+                    <span class="review-date">${new Date(comentario.dateTime).toLocaleDateString()}</span>
+                </div>
+            </div>
+            <div class="review-comment">${comentario.description}</div>
+        `;
+    
         // Añadir cada comentario debajo de los existentes
         reviewsContainer.appendChild(reviewElement);
     });
-}
+    
+
+} 
 
 // Función para obtener los comentarios desde la API
 function fetchProductComments(productId) {

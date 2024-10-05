@@ -315,3 +315,28 @@ textarea {
 .rating label:active {
   transform: scale(1.05); /* Transformación más sutil al hacer clic */
 }
+ /* parte Ale*/
+#submit-review {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 60px;
+  margin: 0 auto; /* Centra horizontalmente el botón */
+  display: block; /* Asegura que el botón ocupe toda la fila disponible */
+}
+
+
+
+#comment { 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  border: 1px solid #ccc; 
+  padding: 10px; /* Ajusta el espacio interno del recuadro */
+  border-radius: 5px; 
+  width: 1100px; /* Ancho deseado */
+  height: 200px; /* Altura deseada */
+  float: center;
+}

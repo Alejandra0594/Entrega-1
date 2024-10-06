@@ -2,7 +2,11 @@ body {
   background-color: white;
 }
 
-
+.contenedorimg{
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 3rem;
+}
 
 /* Sección de miniaturas de productos */
 .product-thumbnails {
@@ -26,7 +30,7 @@ body {
 }
 
 .main-image {
-  float: left;
+  /* float: left; */
   margin-right: 0%;
   max-width: 100%;  /* Ajuste del ancho máximo a 100% */
   height: auto;  /* Mantener la proporción */
@@ -74,7 +78,8 @@ body {
   transform: rotate(180deg);
   font-size: 80%; /* Tamaño de la fuente */
   color: #333; /* Color del texto */
-  margin-bottom: 330px; /* Espacio entre el texto y la imagen */
+  /* text-align: right; */
+  /* margin-bottom: 330px; */ /* Espacio entre el texto y la imagen */
 }
 
 .product-price {
@@ -239,6 +244,9 @@ button {
 .rating label:active {
   transform: scale(1.05); /* Transformación más sutil al hacer clic */
 }
+/* Termina estilo para estrellas*/
+
+
 
 /* Estilos generales para los comentarios */
 .review-rating {
@@ -283,38 +291,7 @@ textarea {
 
 
 
-/* Estilo para las estrellas, Sofi */
-.rating {
-  direction: rtl;
-  display: flex;
-  justify-content: flex-start;
-  gap: 3px; /* Espacio más reducido entre estrellas */
-}
 
-.rating input {
-  display: none; /* Ocultar los radio buttons */
-}
-
-.rating label {
-  font-size: 1rem; /* Tamaño de las estrellas*/
-  color: #999; /* Un gris oscuro para las estrellas no seleccionadas */
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.1s ease;
-}
-
-.rating label:hover,
-.rating label:hover ~ label,
-.rating input:checked ~ label {
-  color: #d4af37; /* Color de las estrellas*/
-}
-
-.rating input:checked + label {
-  color: #d4af37;
-}
-
-.rating label:active {
-  transform: scale(1.05); /* Transformación más sutil al hacer clic */
-}
  /* parte Ale*/
 #submit-review {
   background-color: #007bff;

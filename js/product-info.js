@@ -153,43 +153,43 @@ function guardarProductoId(id) {
     window.location.href = "product-info.html"; // Redirigir a la página de detalles del producto
 }
 
-//desafiate Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
-// Paso 2 capturar el nombre del usuario y usarlo al crear un nuevo comentario
+//desafiate Paso 2 guardar el nombre del usuario y usarlo al crear un nuevo comentario
 document.getElementById("submit-review").addEventListener("click", function() {
-    const rating = document.querySelector('input[name="rating"]:checked');
-    const comment = document.getElementById("comment").value;
+    //primero, ver si el usuario esta logueado (si el sessionstorage esta como true)
+    if (sessionStorage.getItem("sesion") !== "true") {
+        alert("Debes iniciar sesión para dejar un comentario."); //si fuese false, no te deja poner un comentario.
+        return; 
+    }
 
-    // Cambia esto para usar "Usuario Anónimo" como nombre por defecto
-    const username = "Usuario Anónimo"; // Nombre por defecto
+    const puntaje = document.querySelector('input[name="rating"]:checked'); //obtener la calificacion (las estrellas) que puso el usurario
+    const comentario = document.getElementById("comment").value; //lo mismo pero con el comentario
 
-    if (rating && comment) {
-        const newComment = {
-            score: parseInt(rating.value),
-            description: comment,
-            user: username, // Utiliza el nombre predeterminado
-            dateTime: new Date().toISOString()
+    //saco el username del sesssionstorage. Si no se encontrssr, ahí se usa en "Usuario Anónimo"
+    const username = sessionStorage.getItem("nombreUsuario") || "Usuario Anónimo";
+
+    if (puntaje && comentario) { //si el usuario puso una calificacion y un comentario
+        const nuevoComentario = { //creo un const que tiene los datos del nuevo comentario
+            score: parseInt(puntaje.value), //convierte las estrellas en un numero integer
+            description: comentario, //el txt del comentario
+            user: username, //user del sessionstorage
+            dateTime: new Date().toISOString() //fecha y hora actual
         };
 
-        if (!productoActual.comments) {
+        if (!productoActual.comments) { //si no hay comentarios previos, hago un array vacio
             productoActual.comments = [];
         }
 
-        // No hay necesidad de almacenar el nombre en localStorage ya que lo hemos eliminado
-        // localStorage.setItem("username", username); // Esto se elimina
-
-        // Añadir el nuevo comentario al final de la lista
-        productoActual.comments.push(newComment);
-        mostrarComentarios([newComment], false); // Insertar sin limpiar los comentarios anteriores
-
-        // Limpiar el formulario
-        document.querySelector('input[name="rating"]:checked').checked = false;
-        document.getElementById("comment").value = '';
-        // No limpiar el campo de nombre ya que lo queremos persistente
-    } else {
+        //agrego el comentario al final del array de comentarios
+        productoActual.comments.push(nuevoComentario);
+        //llamo a la function mostrarcomentariospara que el array de los comentarios se muestre en la pagina y se actualice
+        mostrarComentarios([nuevoComentario], false); // Mostrar el nuevo comentario en la página y lo pongo en false para que no borre los comentarios anteriores
+        //limpio el formulario
+        document.querySelector('input[name="rating"]:checked').checked = false; //limpio las estrellas
+        document.getElementById("comment").value = ''; //limpio el comentario
+    } else { //si no puso calificacion o comentario, le pide que lo haga con un cartel de alerta
         alert("Por favor, selecciona una calificación y escribe un comentario.");
     }
 });
-
 
 //Chiara
 // Función para obtener los productos relacionados desde la API

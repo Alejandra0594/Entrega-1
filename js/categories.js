@@ -141,3 +141,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+//que "bienvenido, nombreUsuario" sea un enlace a my-profile.html
+const nombreUsuarioBtn = document.getElementById('nombreUsuario');
+
+//creo evento click
+nombreUsuarioBtn.addEventListener('click', function() {
+  //lleva a pagina de tu perfil
+  window.location.href = 'my-profile.html';
+});

@@ -32,6 +32,9 @@
         <li class="nav-item">
           <a class="nav-link" href="sell.html">Vender</a>
         </li>
+        <li class="nav-item ml-auto">
+          <span class="navbar-text" id="nombreUsuario">Bienvenido</span>   <!-- Esto es parte del Desafiate -->
+        </li>
       </ul>
     </div>
   </nav>
@@ -133,5 +136,11 @@
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 </body>
-
+<script>
+  // Verifica si hay un nombre de usuario almacenado y lo muestra
+  const nombreUsuario = sessionStorage.getItem('nombreUsuario');
+  if (nombreUsuario) {
+    document.getElementById('nombreUsuario').textContent = `Bienvenido, ${nombreUsuario}`;
+  }
+</script>
 </html>

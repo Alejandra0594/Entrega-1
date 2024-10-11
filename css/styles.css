@@ -4,7 +4,12 @@
 .site-header {
   font-family: 'Verdana', serif !important;
 }
-
+#nombreUsuario { 
+  display: flex; /* bienvenido nombreUsuario quede alineado con los otros elementos del navbar */
+}
+#nombreUsuario {
+  cursor: pointer; /*esto cambia el cursor a una mano al pasar por encima */
+}
 .jumbotron .display-4 {
   font-weight: bold;
 }

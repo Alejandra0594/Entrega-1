@@ -35,8 +35,19 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item ml-auto">
-            <span class="navbar-text" id="nombreUsuario">Bienvenido</span>   <!-- Esto es parte del Desafiate -->
-          </li>
+            <li class="nav-item ml-auto"> <!--boton-menú desplegable-->
+              <li class="nav-item dropdown ml-auto">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span id="nombreUsuario">Bienvenido</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" id="miPerfil">Mi Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Mi carrito</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
+                </ul>
+              </li>
+              
         </ul>
       </div>
     </div>

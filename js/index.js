@@ -13,11 +13,24 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-//que "bienvenido, nombreUsuario" sea un enlace a my-profile.html
-const nombreUsuarioBtn = document.getElementById('nombreUsuario');
+//que "bienvenido, miPerfil" sea un enlace a my-profile.html
+const miPerfilBtn = document.getElementById('miPerfil');
 
 //creo evento click
-nombreUsuarioBtn.addEventListener('click', function() {
+miPerfilBtn.addEventListener('click', function() {
   //lleva a pagina de tu perfil
   window.location.href = 'my-profile.html';
 });
+
+//desde el menu de cerrar sesión, crea un enlace a login.html
+const cerrarSesion = document.getElementById('cerrarSesion');
+
+//creo un evento click
+
+cerrarSesionBtn.addEventListener('click', function()
+
+{
+    window.location.href = 'login.html';
+});
+
+

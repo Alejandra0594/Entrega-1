@@ -158,16 +158,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para activar el Modo Noche
 function activarModoNoche() {
-    document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
-    document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
-    document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark');
+    document.body.classList.add('dark-mode'); //agreo una clase para fondo oscuro
+
+    //mostrar solo el icono del sol para el Modo Día
     labelModo.innerHTML = '<i class="bi bi-sun"></i>';
 }
 
 // Función para activar el Modo Día
 function activarModoDia() {
     document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
-    document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
-    document.querySelector('.navbar').classList.add('navbar-light', 'bg-light');
+
+    // Mostrar solo el icono de la luna para el Modo Noche
     labelModo.innerHTML = '<i class="bi bi-moon"></i>';
 }

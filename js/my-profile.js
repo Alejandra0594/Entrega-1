@@ -139,20 +139,29 @@ document.addEventListener('DOMContentLoaded', function() {
         activarModoDia();
     }
 
-    // Listeners para alternar entre Modo Día y Noche
-    const toggleModo = document.getElementById('toggleModo');
-    const labelModo = document.getElementById('labelModo');
+let toggleModo = document.getElementById('toggleModo');
+let labelModo = document.getElementById('labelModo');
 
-    if (toggleModo) {
-        toggleModo.addEventListener('change', function () {
-            if (this.checked) {
-                activarModoNoche();
-                localStorage.setItem('theme', 'dark'); // Guardar la preferencia en localStorage
-            } else {
-                activarModoDia();
-                localStorage.setItem('theme', 'light');
-            }
-        });
+
+// Verificar y aplicar el modo guardado en localStorage
+document.addEventListener('DOMContentLoaded', function () {
+    const modoActual = localStorage.getItem('theme');
+    if (modoActual === 'dark') {
+        activarModoNoche();
+        toggleModo.checked = true;
+    } else {
+        activarModoDia();
+    }
+
+});
+// Alternar entre Modo Día y Modo Noche cuando se cambia el switch
+toggleModo.addEventListener('change', function () {
+    if (this.checked) {
+        activarModoNoche();
+        localStorage.setItem('theme', 'dark'); // Guardar la preferencia en localStorage
+    } else {
+        activarModoDia();
+        localStorage.setItem('theme', 'light');
     }
 });
 
@@ -171,3 +180,4 @@ function activarModoDia() {
     // Mostrar solo el icono de la luna para el Modo Noche
     labelModo.innerHTML = '<i class="bi bi-moon"></i>';
 }
+

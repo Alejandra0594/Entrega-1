@@ -1,0 +1,138 @@
+/* Modo Día: Fondos suaves y colores claros */
+body {
+    /* background: linear-gradient(to bottom, #ffedd5, #fff); */ /* Degradado suave */
+   /*  color: #FA861A; */
+   font-family: 'Raleway', sans-serif;
+   /*  margin: 0;
+    padding: 0; */
+  }
+
+  #inputGroupFile02{
+    font-size: 0.7em;
+  }
+  
+  /* Navbar en modo día */
+ /*  .navbar {
+    background-color: #ffb74d;  *//* Naranja claro */
+/*     color: white;
+  } */
+/*   
+  .navbar a {
+    color: white;
+    font-weight: 600;
+  } */
+  
+/*   .navbar a:hover {
+    text-decoration: underline;
+  } */
+  
+  /* Estilo del contenedor principal */
+  /* .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;  *//* Fondo blanco para contraste */
+/*     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  } */
+  
+  /* Título del perfil */
+  /* h1 {
+    text-align: center;
+    color: #ff8c00;
+    margin-bottom: 20px;
+  } */
+  
+  /* Estilo para los inputs y el formulario */
+/*   input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; */ /* Fondo claro */
+ /*  } */
+  
+  /* input[type="file"]::file-selector-button {
+    background-color: #ffa64d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  } */
+  
+ /*  input[type="file"]::file-selector-button:hover {
+    background-color: #ff8c1a;
+  } */
+  
+  /* Botón de guardar cambios */
+  button[type="submit"] {
+    background-color: #ffa64d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #ff8c1a;
+  }
+  
+  /* Formato para filas del formulario */
+  .row.g-3 {
+    margin-top: 10px;
+  }
+
+ /*  Foto a la derecha */
+/*   .col-sm-2{
+align-content: right;
+  } */
+  
+  /* Foto de perfil y input */
+ /*  .topProfile {
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+  }
+   */
+  .topProfile svg {
+    width: 80px;
+    height: 80px;
+    color: #ffa64d;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+  }
+  
+  /* Switch Día/Noche */
+  .form-check-input {
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .form-check-input:checked {
+    background-color: #ff8c1a;
+    border-color: #ff8c1a;
+  }
+  
+  .alert {
+    display: none; /* Oculto por defecto */
+  }
+  

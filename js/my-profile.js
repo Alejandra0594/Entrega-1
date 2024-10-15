@@ -129,6 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('contacto')) {
         document.getElementById('contacto').value = localStorage.getItem('contacto');
     }
+//modo claro y oscuro
+ document.addEventListener('DOMContentLoaded', function () {
+    const toggleModo = document.getElementById('toggleModo');
+    const labelModo = document.getElementById('labelModo');
 
     // Verificar y aplicar el modo guardado en localStorage
     const modoActual = localStorage.getItem('theme');
@@ -139,35 +143,26 @@ document.addEventListener('DOMContentLoaded', function() {
         activarModoDia();
     }
 
-    // Listeners para alternar entre Modo Día y Noche
-    const toggleModo = document.getElementById('toggleModo');
-    const labelModo = document.getElementById('labelModo');
-
-    if (toggleModo) {
-        toggleModo.addEventListener('change', function () {
-            if (this.checked) {
-                activarModoNoche();
-                localStorage.setItem('theme', 'dark'); // Guardar la preferencia en localStorage
-            } else {
-                activarModoDia();
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    }
+    // Alternar entre Modo Día y Modo Noche cuando se cambia el switch
+    toggleModo.addEventListener('change', function () {
+        if (this.checked) {
+            activarModoNoche();
+            localStorage.setItem('theme', 'dark'); // Guardar preferencia en localStorage
+        } else {
+            activarModoDia();
+            localStorage.setItem('theme', 'light');
+        }
+    });
 });
 
 // Función para activar el Modo Noche
 function activarModoNoche() {
-    document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
-    document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
-    document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark');
-    labelModo.innerHTML = '<i class="bi bi-sun"></i>';
+    document.body.classList.add('dark-mode'); // Agregar la clase del modo oscuro
+    document.getElementById('labelModo').innerHTML = '<i class="bi bi-sun"></i>'; // Mostrar icono de sol
 }
 
 // Función para activar el Modo Día
 function activarModoDia() {
-    document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
-    document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
-    document.querySelector('.navbar').classList.add('navbar-light', 'bg-light');
-    labelModo.innerHTML = '<i class="bi bi-moon"></i>';
+    document.body.classList.remove('dark-mode'); // Quitar la clase del modo oscuro
+    document.getElementById('labelModo').innerHTML = '<i class="bi bi-moon"></i>'; // Mostrar icono de luna
 }

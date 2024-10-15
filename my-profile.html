@@ -20,22 +20,22 @@
   <style>
     
 /* que no aparezcan las flechas en contacto */
-input[type=number]::-webkit-inner-spin-button,
+/* input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
     }
-input[type=number] { -moz-appearance:textfield; }
-
+input[type=number] { -moz-appearance: textfield; }
+ */
 
   /* Parte 4 Estilos  para Modo Noche */
-  body.dark-mode {
+ /*  body.dark-mode {
           background-color: #121212;
           color: white;
-      }
-      .dark-mode .navbar {
-          background-color: #343a40; /* Navbar en Modo Noche */
-      }
+      } */
+     /*  .dark-mode .navbar {
+          background-color: #343a40; */ /* Navbar en Modo Noche */
+   /*    } */
       .dark-mode a {
           color: white; /* Enlaces en Modo Noche */
       }
@@ -67,7 +67,7 @@ input[type=number] { -moz-appearance:textfield; }
  
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="barrasuperior">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -225,15 +225,16 @@ input[type=number] { -moz-appearance:textfield; }
     </div>
   </main>
 
+
   <footer> <!-- Acá eliminé la clase: text-muted mt-5, porque no se veía bien el color en el modo oscuro -->
-    <div class="container">
+    <div class="float-end">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
       <p class="footersitio">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  
+ 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>

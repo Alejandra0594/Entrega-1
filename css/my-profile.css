@@ -311,3 +311,19 @@ button[type="submit"]:hover {
   body.dark-mode .alert-danger {
     color: white !important;
   }
+
+  /* que no aparezcan las flechas en contacto */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Estilos que estaban en style.css para la clase container */
+.barrasuperior,
+.float-end {
+  font-family: 'Verdana', serif !important;
+  text-align: center;
+}
+
+

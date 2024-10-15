@@ -19,12 +19,12 @@ function validar() {
         nombre.classList.add('is-valid');
     }
 
-    if (!segnombre.value) {
-        segnombre.classList.add('is-invalid');
-        formIsValid = false;
+    if (segnombre.value) {
+        segnombre.classList.remove('is-invalid');  // Elimina cualquier error previo
+        segnombre.classList.add('is-valid');       // Aplica la clase 'is-valid' si tiene valor
     } else {
-        segnombre.classList.remove('is-invalid');
-        segnombre.classList.add('is-valid');
+        segnombre.classList.remove('is-invalid');  // No es obligatorio, no muestra error si está vacío
+        segnombre.classList.remove('is-valid');    // Si está vacío, remueve la clase 'is-valid'
     }
 
     if (!apellido.value) {
@@ -35,12 +35,12 @@ function validar() {
         apellido.classList.add('is-valid');
     }
 
-    if (!segapellido.value) {
-        segapellido.classList.add('is-invalid');
-        formIsValid = false;
+    if (segapellido.value) {
+        segapellido.classList.remove('is-invalid');  // Elimina cualquier error previo
+        segapellido.classList.add('is-valid');       // Aplica la clase 'is-valid' si tiene valor
     } else {
-        segapellido.classList.remove('is-invalid');
-        segapellido.classList.add('is-valid');
+        segapellido.classList.remove('is-invalid');  // No es obligatorio, no muestra error si está vacío
+        segapellido.classList.remove('is-valid');    // Si está vacío, remueve la clase 'is-valid'
     }
 
     if (!contacto.value) {
@@ -161,16 +161,36 @@ document.addEventListener('DOMContentLoaded', function() {
 // Función para activar el Modo Noche
 function activarModoNoche() {
     document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
-    document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
-    document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark');
-    labelModo.innerHTML = '<i class="bi bi-sun"></i>';
+   /*  document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
+    document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark'); */
+   /*  labelModo.innerHTML = '<i class="bi bi-sun"></i>'; */
 }
 
 // Función para activar el Modo Día
 function activarModoDia() {
     document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
     document.body.classList.add('light-mode'); // Agregar clase para fondo claro
-    document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
-    document.querySelector('.navbar').classList.add('navbar-light', 'bg-light');
-    labelModo.innerHTML = '<i class="bi bi-moon"></i>';
+/*     document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
+    document.querySelector('.navbar').classList.add('navbar-light', 'bg-light'); */
+  /*   labelModo.innerHTML = '<i class="bi bi-moon"></i>'; */
 }
+
+/* funcion para que aparezca el campo de email, rellenado por el emai que se ingresa en el login */
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const emailUsuario = sessionStorage.getItem('nombreUsuario'); // Recupera el email de sessionStorage
+    if (emailUsuario) {
+        // Si hay un email en sessionStorage, úsalo
+        document.getElementById('email').value = emailUsuario;
+        console.log("Email del sessionStorage cargado:", emailUsuario);
+    } else {
+        // Si no hay un email en sessionStorage, carga el del localStorage (si existe)
+        const emailLocal = localStorage.getItem('email');
+        if (emailLocal) {
+            document.getElementById('email').value = emailLocal;
+            console.log("Email del localStorage cargado:", emailLocal);
+        }
+    }
+});
+

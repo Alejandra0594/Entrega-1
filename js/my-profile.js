@@ -130,10 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contacto').value = localStorage.getItem('contacto');
     }
 //modo claro y oscuro
-    document.addEventListener('DOMContentLoaded', function () {
-    // Referencias a los elementos del switch y del label
-    let toggleModo = document.getElementById('toggleModo');
-    let labelModo = document.getElementById('labelModo');
+ document.addEventListener('DOMContentLoaded', function () {
+    const toggleModo = document.getElementById('toggleModo');
+    const labelModo = document.getElementById('labelModo');
 
     // Verificar y aplicar el modo guardado en localStorage
     const modoActual = localStorage.getItem('theme');
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleModo.addEventListener('change', function () {
         if (this.checked) {
             activarModoNoche();
-            localStorage.setItem('theme', 'dark'); // Guardar la preferencia en localStorage
+            localStorage.setItem('theme', 'dark'); // Guardar preferencia en localStorage
         } else {
             activarModoDia();
             localStorage.setItem('theme', 'light');
@@ -158,16 +157,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función para activar el Modo Noche
 function activarModoNoche() {
-    document.body.classList.add('dark-mode'); //agrego una clase para fondo oscuro
-
-    // Mostrar solo el icono del sol para el Modo Día
-    document.getElementById('labelModo').innerHTML = '<i class="bi bi-sun"></i>';
+    document.body.classList.add('dark-mode'); // Agregar la clase del modo oscuro
+    document.getElementById('labelModo').innerHTML = '<i class="bi bi-sun"></i>'; // Mostrar icono de sol
 }
 
 // Función para activar el Modo Día
 function activarModoDia() {
-    document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
-
-    // Mostrar solo el icono de la luna para el Modo Noche
-    document.getElementById('labelModo').innerHTML = '<i class="bi bi-moon"></i>';
+    document.body.classList.remove('dark-mode'); // Quitar la clase del modo oscuro
+    document.getElementById('labelModo').innerHTML = '<i class="bi bi-moon"></i>'; // Mostrar icono de luna
 }

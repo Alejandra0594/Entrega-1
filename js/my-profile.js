@@ -130,14 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contacto').value = localStorage.getItem('contacto');
     }
 
-    // Verificar y aplicar el modo guardado en localStorage
-    const modoActual = localStorage.getItem('theme');
-    if (modoActual === 'dark') {
-        activarModoNoche();
-        toggleModo.checked = true;
-    } else {
-        activarModoDia();
-    }
+   
 
     // Listeners para alternar entre Modo Día y Noche
     const toggleModo = document.getElementById('toggleModo');
@@ -156,6 +149,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+ // Verificar y aplicar el modo guardado en localStorage
+ const modoActual = localStorage.getItem('theme');
+ if (modoActual === 'dark') {
+     activarModoNoche();
+     toggleModo.checked = true;
+ } else {
+     activarModoDia();
+ }
+ 
 // Función para activar el Modo Noche
 function activarModoNoche() {
     document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
@@ -167,6 +169,7 @@ function activarModoNoche() {
 // Función para activar el Modo Día
 function activarModoDia() {
     document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
+    document.body.classList.add('light-mode'); // Agregar clase para fondo claro
     document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
     document.querySelector('.navbar').classList.add('navbar-light', 'bg-light');
     labelModo.innerHTML = '<i class="bi bi-moon"></i>';

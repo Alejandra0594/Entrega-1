@@ -238,11 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-//que "bienvenido, nombreUsuario" sea un enlace a my-profile.html
-const nombreUsuarioBtn = document.getElementById('nombreUsuario');
+//que "bienvenido, miPerfil" sea un enlace a my-profile.html
+const miPerfilBtn = document.getElementById('miPerfil');
 
 //creo evento click
-nombreUsuarioBtn.addEventListener('click', function() {
+miPerfilBtn.addEventListener('click', function() {
   //lleva a pagina de tu perfil
   window.location.href = 'my-profile.html';
 });

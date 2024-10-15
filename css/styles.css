@@ -4,15 +4,16 @@
 .site-header {
   font-family: 'Verdana', serif !important;
 }
+
 #nombreUsuario { 
   display: flex; /* bienvenido nombreUsuario quede alineado con los otros elementos del navbar */
+  cursor: pointer; /* esto cambia el cursor a una mano al pasar por encima */
 }
-#nombreUsuario {
-  cursor: pointer; /*esto cambia el cursor a una mano al pasar por encima */
-}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
+
 .navbar .dropdown-toggle {
   display: flex;
   align-items: center;
@@ -21,25 +22,27 @@
 }
 
 .navbar .dropdown-toggle::after {
-  margin-right: auto; /*mueve el triangulito a la izquierda */
+  margin-right: auto; /* mueve el triangulito a la izquierda */
   margin-left: 8px; 
   pointer-events: none; 
 }
+
 .dropdown-item {
-  cursor: pointer; /*cambia el cursor a pointer (dedo) al pasar sobre el ítem */
+  cursor: pointer; /* cambia el cursor a pointer (dedo) al pasar sobre el ítem */
 }
-/*estilos par el dropdown en modo oscuro */
+
+/* Estilos para el dropdown en modo oscuro */
 .dark-mode .dropdown-menu {
-  background-color: #333; /* fondo dark para el menu */
-  color: #fff; /* color del txt */
+  background-color: #333; /* Fondo dark para el menú */
+  color: #fff; /* Color del texto */
 }
 
 .dark-mode .dropdown-item {
-  color: #fff; /* txt claro para cada item del menu */
+  color: #fff; /* Texto claro para cada ítem del menú */
 }
 
 .dark-mode .dropdown-item:hover {
-  background-color: #444; /*color para cuando pasas el cursos por arriba*/
+  background-color: #444; /* Color cuando pasas el cursor por encima */
 }
 
 nav a {
@@ -220,4 +223,35 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+/* --- Nuevos Estilos para Modo Oscuro --- */
+.dark-mode body, 
+.dark-mode .card-body, 
+.dark-mode .container, 
+.dark-mode .site-header {
+  background-color: #121212;  /* Fondo oscuro */
+  color: #ffffff;  /* Texto claro */
+}
+
+.dark-mode .jumbotron {
+  background-color: #333; /* Fondo de la jumbotron en modo oscuro */
+  color: white;
+}
+
+.dark-mode footer {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark-mode .navbar {
+  background-color: #343a40; /* Navbar en Modo Noche */
+}
+
+.dark-mode a {
+  color: white; /* Enlaces en Modo Noche */
+}
+
+.dark-mode .form-check-label {
+  color: white; /* Etiqueta del switch en Modo Noche */
 }

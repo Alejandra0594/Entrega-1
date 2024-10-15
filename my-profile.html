@@ -18,6 +18,13 @@
   
   <style>
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
   /* Parte 4 Estilos  para Modo Noche */
   body.dark-mode {
           background-color: #121212;
@@ -48,6 +55,7 @@
         font-size: 3.5rem;
       }
     }
+   
   </style>
 
 </head>
@@ -143,7 +151,7 @@
       </div>
           
     </div>
-    
+    <div id="perfill">
     <hr class="my-4">
     <div class="row g-3">
       <!-- Fila 1: Primer y Segundo Nombre -->
@@ -185,7 +193,7 @@
             <div class="invalid-feedback">Por favor, ingresa tu número de contacto.</div>
           </div>
         <!-- Fila 4: Email -->
-        <div class="col-sm-6 ">
+        <div class="col-sm-6">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control" id="email" required>
           <div class="invalid-feedback">Por favor, ingresa un email válido.</div>
@@ -199,6 +207,7 @@
         </div>
       </div>
     </form>
+  </div>
     <div id="alert-success" class="alert alert-success fade" role="alert">
       <p></p>
   </div>

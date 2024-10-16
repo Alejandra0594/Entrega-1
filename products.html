@@ -32,6 +32,19 @@
         <li class="nav-item">
           <a class="nav-link" href="sell.html">Vender</a>
         </li>
+        <li class="nav-item ml-auto"> <!--boton-menú desplegable-->
+          <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="nombreUsuario">Bienvenido</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" id="miPerfil">Mi Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Mi carrito</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+          
       </ul>
     </div>
   </nav>
@@ -133,5 +146,11 @@
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 </body>
-
+<script>
+  // Verifica si hay un nombre de usuario almacenado y lo muestra
+  const nombreUsuario = sessionStorage.getItem('nombreUsuario');
+  if (nombreUsuario) {
+    document.getElementById('nombreUsuario').textContent = `Bienvenido, ${nombreUsuario}`;
+  }
+</script>
 </html>

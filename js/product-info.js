@@ -237,3 +237,12 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchRelatedProducts(productId); // Obtener productos relacionados al cargar la página
     }
 });
+
+//que "bienvenido, miPerfil" sea un enlace a my-profile.html
+const miPerfilBtn = document.getElementById('miPerfil');
+
+//creo evento click
+miPerfilBtn.addEventListener('click', function() {
+  //lleva a pagina de tu perfil
+  window.location.href = 'my-profile.html';
+});

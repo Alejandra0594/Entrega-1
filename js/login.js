@@ -1,7 +1,7 @@
 
    
 // Añade un evento de click al botón de "Ingresar" para que llame a la función iniciar
-document.getElementById("ingresar").addEventListener("click", iniciar); */
+document.getElementById("ingresar").addEventListener("click", iniciar); 
 
 function iniciar() {
     // Captura los valores de los campos de email y contraseña

@@ -27,10 +27,12 @@ const cerrarSesion = document.getElementById('cerrarSesion');
 
 //creo un evento click
 
-cerrarSesionBtn.addEventListener('click', function()
+
+/* Aca hay problema, porque ya no tenemos un boton cerrar sesion */
+/* cerrarSesionBtn.addEventListener('click', function()
 
 {
     window.location.href = 'login.html';
-});
+}); */
 
 

@@ -163,7 +163,7 @@ function activarModoNoche() {
     document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
    /*  document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
     document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark'); */
-   /*  labelModo.innerHTML = '<i class="bi bi-sun"></i>'; */
+    labelModo.innerHTML = '<i class="bi bi-sun"></i>';
 }
 
 // Función para activar el Modo Día
@@ -172,7 +172,7 @@ function activarModoDia() {
     document.body.classList.add('light-mode'); // Agregar clase para fondo claro
 /*     document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
     document.querySelector('.navbar').classList.add('navbar-light', 'bg-light'); */
-  /*   labelModo.innerHTML = '<i class="bi bi-moon"></i>'; */
+    labelModo.innerHTML = '<i class="bi bi-moon"></i>';
 }
 
 /* funcion para que aparezca el campo de email, rellenado por el emai que se ingresa en el login */

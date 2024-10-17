@@ -333,3 +333,13 @@ textarea {
   padding-bottom: 3em;
 
 }
+
+/* Parte 4 Estilo modo noche */
+body.noche {
+  background-color: #121212; /* Color de fondo oscuro */
+  color: #ffffff; /* Color de texto claro */
+}
+
+body.noche .navbar {
+  background-color: #1f1f1f; /* Navbar oscuro */
+}

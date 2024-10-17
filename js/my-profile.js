@@ -194,3 +194,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+//img de perfil
+document.getElementById("inputGroupFile02").addEventListener("change", function (event) {
+    const file = event.target.files[0]; // Obtiene el archivo seleccionado
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            //guardo foto en el localstorage
+            localStorage.setItem("profileImage", e.target.result);
+            
+            // Muestra la imagen en el contenedor de perfil
+            const profileImage = document.getElementById("profileImage");
+            profileImage.src = e.target.result;
+            profileImage.style.display = "block"; //muestro la foto
+        };
+        reader.readAsDataURL(file); //lee el archivo como si fuera una URL
+    }
+});
+
+//si hay foto en el localstorage, la carga
+function loadProfileImage() {
+    const storedImage = localStorage.getItem("profileImage");
+    if (storedImage) {
+        const profileImage = document.getElementById("profileImage");
+        profileImage.src = storedImage;
+        profileImage.style.display = "block"; //muestro la img de perfil si hay
+    }
+}
+
+//carga la foto de perfil al cargar la página
+window.onload = loadProfileImage;

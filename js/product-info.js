@@ -53,27 +53,7 @@ function mostrarComentarios(comentarios, clear = true) {
         return;
     }
 
-    /* Estrellas para comentarios, estilo viejo 
-    comentarios.forEach(comentario => {
-        const reviewElement = document.createElement('div');
-        reviewElement.classList.add('review');
-
-        reviewElement.innerHTML = `
-            <div class="review-header">
-                <div class="review-rating">${'★'.repeat(comentario.score)}${'☆'.repeat(5 - comentario.score)}</div>
-                <div class="review-user-date">
-                    <span class="review-user">${comentario.user}</span>
-                    <span class="review-date">${new Date(comentario.dateTime).toLocaleDateString()}</span>
-                </div>
-            </div>
-            <div class="review-comment">${comentario.description}</div>
-        `;
- */
-        // Añadir cada comentario debajo de los existentes
-     /*    reviewsContainer.appendChild(reviewElement);
-    });*/
-
-
+   
     /* Otra forma para las estrellas, Sofi */
     comentarios.forEach(comentario => {
         const reviewElement = document.createElement('div');
@@ -133,12 +113,7 @@ function fetchProductInfo(productId) {
 document.addEventListener("DOMContentLoaded", () => {
     let productId = localStorage.getItem("id");
 
-    // Pre-cargar el nombre del usuario si está en localStorage
-    //const savedUsername = localStorage.getItem("username");
-    //if (savedUsername) {
-        //document.getElementById("username").value = savedUsername;
-    //}
-
+   
     if (productId) {
         fetchProductInfo(productId); // Llamar a la función con el ID
     } else {
@@ -245,4 +220,25 @@ const miPerfilBtn = document.getElementById('miPerfil');
 miPerfilBtn.addEventListener('click', function() {
   //lleva a pagina de tu perfil
   window.location.href = 'my-profile.html';
+});
+
+// Parte 4 Script para el modo día/noche
+const toggleModo = document.getElementById('toggleModo');
+const body = document.body;
+
+// Verificar el modo guardado en localStorage
+if (localStorage.getItem('modo') === 'noche') {
+    body.classList.add('noche');
+    toggleModo.checked = true; // Marcar el toggle si está en modo noche
+}
+
+// Cambiar el modo al hacer clic en el toggle
+toggleModo.addEventListener('change', () => {
+    if (toggleModo.checked) {
+        body.classList.add('noche'); // Agregar clase de modo noche
+        localStorage.setItem('modo', 'noche'); // Guardar el modo en localStorage
+    } else {
+        body.classList.remove('noche'); // Quitar clase de modo noche
+        localStorage.setItem('modo', 'dia'); // Guardar el modo en localStorage
+    }
 });

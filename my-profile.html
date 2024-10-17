@@ -178,13 +178,13 @@
         
           <div class="col-sm-6">
             <label for="contacto" class="form-label">Teléfono de Contacto</label>
-            <input type="number" class="form-control" id="contacto">
+            <input type="number" class="form-control" id="contacto" min="0">
             <div class="invalid-feedback">Por favor, ingresa tu número de contacto.</div>
           </div>
         <!-- Fila 4: Email -->
         <div class="col-sm-6">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
+          <input type="email" class="form-control" id="email" required pattern="[a-z]+@[a-z]+\.[a-z]{2,3}">
           <div class="invalid-feedback">Por favor, ingresa un email válido.</div>
         
       </div>

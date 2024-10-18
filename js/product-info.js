@@ -224,21 +224,31 @@ miPerfilBtn.addEventListener('click', function() {
 
 // Parte 4 Script para el modo día/noche
 const toggleModo = document.getElementById('toggleModo');
-const body = document.body;
+const iconoModo = document.getElementById('iconoModo');
 
-// Verificar el modo guardado en localStorage
-if (localStorage.getItem('modo') === 'noche') {
-    body.classList.add('noche');
-    toggleModo.checked = true; // Marcar el toggle si está en modo noche
-}
+// Cargar el estado del modo noche desde localStorage al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+  const modoNocheActivo = localStorage.getItem('modoNoche') === 'true';
+  toggleModo.checked = modoNocheActivo;
+  if (modoNocheActivo) {
+    iconoModo.classList.remove('bi-moon');
+    iconoModo.classList.add('bi-sun');
+    document.body.classList.add('modo-noche'); // Cambiar el tema
+  }
+});
 
-// Cambiar el modo al hacer clic en el toggle
 toggleModo.addEventListener('change', () => {
-    if (toggleModo.checked) {
-        body.classList.add('noche'); // Agregar clase de modo noche
-        localStorage.setItem('modo', 'noche'); // Guardar el modo en localStorage
-    } else {
-        body.classList.remove('noche'); // Quitar clase de modo noche
-        localStorage.setItem('modo', 'dia'); // Guardar el modo en localStorage
-    }
+  if (toggleModo.checked) {
+    // Modo Noche
+    iconoModo.classList.remove('bi-moon');
+    iconoModo.classList.add('bi-sun');
+    document.body.classList.add('modo-noche'); // Cambiar el tema
+    localStorage.setItem('modoNoche', 'true'); // Guardar en localStorage
+  } else {
+    // Modo Día
+    iconoModo.classList.remove('bi-sun');
+    iconoModo.classList.add('bi-moon');
+    document.body.classList.remove('modo-noche'); // Cambiar el tema
+    localStorage.setItem('modoNoche', 'false'); // Guardar en localStorage
+  }
 });

@@ -333,3 +333,9 @@ textarea {
   padding-bottom: 3em;
 
 }
+
+/* Parte 4 Estilo modo noche */
+.modo-noche {
+  background-color: #121212;
+  color: #ffffff;
+}

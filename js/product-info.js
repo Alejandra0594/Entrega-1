@@ -53,27 +53,7 @@ function mostrarComentarios(comentarios, clear = true) {
         return;
     }
 
-    /* Estrellas para comentarios, estilo viejo 
-    comentarios.forEach(comentario => {
-        const reviewElement = document.createElement('div');
-        reviewElement.classList.add('review');
-
-        reviewElement.innerHTML = `
-            <div class="review-header">
-                <div class="review-rating">${'★'.repeat(comentario.score)}${'☆'.repeat(5 - comentario.score)}</div>
-                <div class="review-user-date">
-                    <span class="review-user">${comentario.user}</span>
-                    <span class="review-date">${new Date(comentario.dateTime).toLocaleDateString()}</span>
-                </div>
-            </div>
-            <div class="review-comment">${comentario.description}</div>
-        `;
- */
-        // Añadir cada comentario debajo de los existentes
-     /*    reviewsContainer.appendChild(reviewElement);
-    });*/
-
-
+   
     /* Otra forma para las estrellas, Sofi */
     comentarios.forEach(comentario => {
         const reviewElement = document.createElement('div');
@@ -133,12 +113,7 @@ function fetchProductInfo(productId) {
 document.addEventListener("DOMContentLoaded", () => {
     let productId = localStorage.getItem("id");
 
-    // Pre-cargar el nombre del usuario si está en localStorage
-    //const savedUsername = localStorage.getItem("username");
-    //if (savedUsername) {
-        //document.getElementById("username").value = savedUsername;
-    //}
-
+   
     if (productId) {
         fetchProductInfo(productId); // Llamar a la función con el ID
     } else {
@@ -245,4 +220,35 @@ const miPerfilBtn = document.getElementById('miPerfil');
 miPerfilBtn.addEventListener('click', function() {
   //lleva a pagina de tu perfil
   window.location.href = 'my-profile.html';
+});
+
+// Parte 4 Script para el modo día/noche
+const toggleModo = document.getElementById('toggleModo');
+const iconoModo = document.getElementById('iconoModo');
+
+// Cargar el estado del modo noche desde localStorage al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+  const modoNocheActivo = localStorage.getItem('modoNoche') === 'true';
+  toggleModo.checked = modoNocheActivo;
+  if (modoNocheActivo) {
+    iconoModo.classList.remove('bi-moon');
+    iconoModo.classList.add('bi-sun');
+    document.body.classList.add('modo-noche'); // Cambiar el tema
+  }
+});
+
+toggleModo.addEventListener('change', () => {
+  if (toggleModo.checked) {
+    // Modo Noche
+    iconoModo.classList.remove('bi-moon');
+    iconoModo.classList.add('bi-sun');
+    document.body.classList.add('modo-noche'); // Cambiar el tema
+    localStorage.setItem('modoNoche', 'true'); // Guardar en localStorage
+  } else {
+    // Modo Día
+    iconoModo.classList.remove('bi-sun');
+    iconoModo.classList.add('bi-moon');
+    document.body.classList.remove('modo-noche'); // Cambiar el tema
+    localStorage.setItem('modoNoche', 'false'); // Guardar en localStorage
+  }
 });

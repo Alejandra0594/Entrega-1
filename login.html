@@ -36,36 +36,35 @@
 
    
 
-<div >
-  <div class="imagenportada">
-   <img class="imagen" src="img/cover_back.png" width="600" > <br> 
-  </div>
-  <div class="botones">
+    <form id="formLogin">  <!-- Cambiamos todo a un form -->
+      <div class="imagenportada">
+        <img class="imagen" src="img/cover_back.png" width="600"><br>
+      </div>
 
-    <input type="email" class="form-control" id="nombre_usuario" placeholder= "*Ingresar email*" required><br>
-    
-    <input type="password" class="form-control" id="contraseña_usuario" placeholder= "*Contraseña*" required><br>
-  </div>
-  
-  <div>
-    <button class="Ingresar" type="button" id="ingresar">Ingresar</button> <br> <br>
-  </div>
-  
-</div>
+      <div class="botones">
+        <input type="email" class="form-control" id="nombre_usuario" placeholder="*Ingresar email*" required><br>
+        <input type="password" class="form-control" id="contraseña_usuario" placeholder="*Contraseña*" required><br>
+      </div>
 
+      <div>
+        <button class="Ingresar" type="submit" id="ingresar">Ingresar</button><br><br>
+      </div>
+    </form>
 
-<div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
-  <p>Datos guardados correctamente</p>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+      <p>Datos guardados correctamente</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
-<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-  <p>Debe completar todos los campos</p>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-</div>
+    <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+      <p>Debe completar todos los campos</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
-
+    <div id="alert-email" class="alert alert-danger alert-dismissible fade" role="alert">
+      <p>Formato de correo incorrecto. Por favor, ingresa un email válido.</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
 </div>
 

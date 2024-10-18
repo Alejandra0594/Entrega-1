@@ -48,7 +48,12 @@
 </head>
 
 <body>
- 
+  <script>
+    // Chequea si el usuario inició sesión
+    if (!sessionStorage.getItem('sesion')) {
+      window.location.href = 'login.html';
+    }
+  </script>
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">

@@ -15,7 +15,7 @@ document.getElementById("formLogin").addEventListener("submit", function (event)
             sessionStorage.setItem('nombreUsuario', email);  // Guarda el email del usuario
 
             // Redirige al usuario a la página principal (index.html)
-            window.location.href = 'index.html';
+            window.location.href = 'my-profile.html';
         } else {
             // Muestra una alerta de error si el email no tiene un formato válido
             showAlertEmail();
@@ -25,6 +25,8 @@ document.getElementById("formLogin").addEventListener("submit", function (event)
         showAlertError();
     }
 });
+
+
 
 // Función para validar el formato del email
 function validarEmail(email) {

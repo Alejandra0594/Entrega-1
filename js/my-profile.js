@@ -109,8 +109,8 @@ function showAlertError(message) {
 }
 
 // Combinación de todas las funciones de `DOMContentLoaded`
-document.addEventListener('DOMContentLoaded', function() {
-    // Cargar valores del localStorage en el formulario
+ document.addEventListener('DOMContentLoaded', function() {
+    /* // Cargar valores del localStorage en el formulario
     if (localStorage.getItem('nombre')) {
         document.getElementById('nombre').value = localStorage.getItem('nombre');
     }
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     if (localStorage.getItem('contacto')) {
         document.getElementById('contacto').value = localStorage.getItem('contacto');
-    }
+    } */
 
    
 
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+})
 
  // Verificar y aplicar el modo guardado en localStorage
  const modoActual = localStorage.getItem('theme');

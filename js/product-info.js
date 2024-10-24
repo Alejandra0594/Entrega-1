@@ -252,3 +252,25 @@ toggleModo.addEventListener('change', () => {
     localStorage.setItem('modoNoche', 'false'); // Guardar en localStorage
   }
 });
+
+// Manejo del clic en el botón "Comprar"
+document.getElementById("buyButton").addEventListener("click", function() {
+    const cantidad = document.getElementById("quantity").value; // Cantidad ingresada por el usuario
+    const subtotal = productoActual.cost * cantidad; // Usar costo del producto actual
+
+    // Crear objeto para almacenar en localStorage
+    const compra = {
+        nombre: productoActual.name,        
+        costo: productoActual.cost,          
+        moneda: productoActual.currency,     
+        cantidad: cantidad,                  
+        imagen: productoActual.images[0],    
+        subtotal: subtotal                   
+    };
+
+    // Guardar en localStorage
+    localStorage.setItem("compra", JSON.stringify(compra));
+
+    // Navegar a cart.html
+    window.location.href = "cart.html";
+});

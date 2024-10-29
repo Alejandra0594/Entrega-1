@@ -274,3 +274,12 @@ document.getElementById("buyButton").addEventListener("click", function() {
     // Navegar a cart.html
     window.location.href = "cart.html";
 });
+
+/* Para Mi Carrito */
+const miCarritoBtn = document.getElementById('miCarrito');
+
+//creo evento click
+miCarritoBtn.addEventListener('click', function() {
+  //lleva a pagina de carrito
+  window.location.href = 'cart.html';
+});

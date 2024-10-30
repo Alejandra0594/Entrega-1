@@ -30,7 +30,11 @@ function cargarCarrito() {
             <td>${moneda} ${precio}</td>
             <td><input type="number" value="${cantidad}" min="1" class="cantidad" data-id="${product.id}"></td>
             <td>${moneda} ${subtotal.toFixed(2)}</td>
-            <td><button class="btn btn-danger btn-sm" onclick="eliminarProducto(${product.id})">Eliminar</button></td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${product.id})">
+                    <i class="bi bi-trash"></i> <!-- Icono de papelera -->
+                </button>
+            </td>
         `;
         contenedor.appendChild(row);
     });
@@ -41,10 +45,19 @@ function cargarCarrito() {
         <p>Total en UYU: ${totalUYU.toFixed(2)} UYU</p>
     `;
 }
+function eliminarProducto(id) {
+    // Obtener el carrito del localStorage
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// Llamar a la función al cargar la página
-cargarCarrito();
+    // Filtrar el producto que queremos eliminar
+    carrito = carrito.filter(product => product.id !== id);
 
+    // Actualizar el localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // Volver a cargar el carrito en la página
+    cargarCarrito();
+}
 
 // Llamar a la función al cargar la página
 cargarCarrito();

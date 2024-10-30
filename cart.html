@@ -78,9 +78,52 @@
         </table>
         <p id="total"></p>
       </div>
-  
-      <div class="d-flex justify-content-end mt-4">
-        <h4>Total: <span id="total-price">0</span> USD</h4>
+
+       <!-- Dirección de envío de los productos en el carrito -->
+       <div class="row my-4">
+        <div class="col-12 my-4 text-center text-sm-start">
+          <h3><i class="bi bi-pin-map"></i> Dirección de envío</h3>
+        </div>
+        <div class="col-12 d-md-flex flex-column">
+          <form>
+            <div class="row gx-4 gy-4">
+              <div class="col-12 col-sm-6">
+                <div class="form-group text-center text-sm-start">
+                  <label for="calleNombre">Nombre de la Calle <i class="bi bi-building-add"></i></label>
+                  <input type="text" class="form-control my-3" id="calleNombre"
+                    placeholder="Ingrese el nombre de su calle" />
+
+                  <div class="align-self-center mt-3 mb-5 text-danger d-none" id="nombreDeCalleAlertContainer">
+                    <span id="nombreDeCalleAlert">Debe seleccionar un nombre de calle</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group text-center text-sm-start">
+                  <label for="numeroPuerta">Número de puerta <i class="bi bi-shop"></i></label>
+                  <input type="number" class="form-control my-3" id="numeroPuerta"
+                    placeholder="Ingrese el número de puerta" />
+
+                  <div class="align-self-center mt-3 mb-5 text-danger d-none" id="numeroDePuertaAlertContainer">
+                    <span id="numeroDePuertaAlert">Debe seleccionar un número de puerta</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group text-center text-sm-start">
+                  <label for="esquinaNombre">Nombre de la Esquina
+                    <i class="bi bi-building-fill-add"></i></label>
+                  <input type="text" class="form-control my-3" id="esquinaNombre"
+                    placeholder="Ingrese el nombre de su esquina" />
+
+                  <div class="align-self-center mt-3 mb-5 text-danger d-none" id="nombreDeEsquinaAlertContainer">
+                    <span id="nombreDeEsquinaAlert">Debe seleccionar un nombre de Esquina</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
   
       <div class="d-flex justify-content-end mt-3">
@@ -97,88 +140,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/cart.js"></script> <!-- Archivo JS para manejar la lógica del carrito -->
   </body>
-  
-
-
-
-
-
-<!--   </nav> -->
- <!--  Day -->
-   <!-- Switch Modo Día/Noche con iconos -->
- <!--  <div class="container mt-4">
-
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="toggleModo">
-        <label class="form-check-label" for="toggleModo" id="labelModo"></label>
-  
-  </div>
-  <main class="container">
-    <div class="cart"> -->
-      <!-- Productos agregados -->
-    <!--   <div class="cart-items" id="cart-items"></div>
- -->
-      <!-- Resumen del pedido -->
-     <!--  <div class="cart-summary">
-        <h2>Resumen de compra</h2>
-        <div id="summary-list"></div>
-        <p>Envío: <span id="envio">$150</span></p>
-        <h3>Total: <span id="total-price">$0</span></h3>
-        <button id="checkout-btn">Finalizar compra</button>
-      </div>
-    </div>
-  </main> -->
-
-    <!--  <div class="contenedor-rectangulo">
-      <div class="col-sm-2">
-  </div>
-    
-  <main>
-    <div class="p-4">
-      <h1 class="text-center fs-1">Carrito de compras</h1>
-      <div class="shopping-cart"></div>
-      <div class="cart-items"></div>
-    </div> -->
-    <!-- aca va la lista de elementos a comprar -->
-  <!--   <div class="container">
-      <h2 class="lead text-left fs-3">Artículos a comprar</h2><p class="lead text-left fs-3">Resumen de compra</p>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Costo</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody id="carrito">
-            <ul class="list-group"></ul>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-</body>
- -->
-
 
 </html>
+
+
+

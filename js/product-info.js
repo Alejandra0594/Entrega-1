@@ -391,15 +391,6 @@ console.log(productoActual);
         fetchProductInfo(1); // Reemplaza '1' con el ID dinámico según tu lógica
 
 
-        /* Para Mi Carrito */
-const miCarritoBtn = document.getElementById('miCarrito');
-//creo evento click
-miCarritoBtn.addEventListener('click', function() {
-  //lleva a pagina de carrito
-  window.location.href = 'cart.html';
-});
-
-
 document.getElementById("buyButton").addEventListener("click", () => {
     const cantidad = parseInt(document.getElementById("quantity").value);
     console.log(productoActual, cantidad); // Verificar que no sean undefined
@@ -410,3 +401,13 @@ document.getElementById("buyButton").addEventListener("click", () => {
 
 console.log(productoActual); // Verifica que tenga los datos correctos
 console.log(localStorage.getItem("carrito")); // Verifica el contenido del carrito
+
+/* Para Mi Carrito */
+const miCarritoBtn = document.getElementById('miCarrito');
+
+//creo evento click
+miCarritoBtn.addEventListener('click', function() {
+  //lleva a pagina de carrito
+  window.location.href = 'cart.html';
+});
+

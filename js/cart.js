@@ -1,3 +1,4 @@
+
 function cargarCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let contenedor = document.getElementById("carrito-container");
@@ -49,3 +50,13 @@ cargarCarrito();
 cargarCarrito();
 
 console.log(localStorage.getItem("carrito")); // Verifica el contenido del carrito
+
+/* Para Mi Carrito */
+const miCarritoBtn = document.getElementById('miCarrito');
+
+//creo evento click
+miCarritoBtn.addEventListener('click', function() {
+  //lleva a pagina de carrito
+  window.location.href = 'cart.html';
+});
+

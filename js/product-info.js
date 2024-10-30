@@ -377,18 +377,7 @@ function agregarAlCarrito(product, quantity) {
 console.log(productoActual);
 
 
-        // Escuchar el clic en el botón "COMPRAR"
-        document.getElementById("buyButton").addEventListener("click", () => {
-            let quantity = parseInt(document.getElementById("quantity").value);
-            if (quantity > 0) {
-                agregarAlCarrito(productoActual, quantity);
-            } else {
-                alert("Por favor, ingresa una cantidad válida.");
-            }
-        });
-
-        // Llamar a la función para cargar la información del producto (ejemplo con ID 1)
-        fetchProductInfo(1); // Reemplaza '1' con el ID dinámico según tu lógica
+    
 
 
 document.getElementById("buyButton").addEventListener("click", () => {

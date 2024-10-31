@@ -13,7 +13,7 @@ border-color: black;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid #ccc;
+    border: 1px solid #ffa64d;
 }
 
 .cantidad-texto {
@@ -21,3 +21,75 @@ border-color: black;
     width: 40px;
     text-align: center;
 }
+
+/* Estilos generales */
+body {
+ 
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* background-color: #FAE5D3; */
+    font-family: Arial, sans-serif;
+  }
+
+  /* Barra de navegación */
+  .navbar {
+    background-color: #000;
+  }
+  .navbar .nav-link {
+    color: #fff !important;
+    
+  }
+
+  /* Contenedor principal */
+  .container {
+    /* background-color: #ffa64d;  */
+    border-radius: 1em;
+    padding: 0,5em;
+    margin-top: o,5em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilo para el carrito y productos */
+  #carrito-container {
+    background-color: #F7F7F7;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  #carrito-container img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  /* Sección de resumen de compra */
+  .resumen-compra {
+    background-color: #F8B56D;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+  }
+  .resumen-compra h2 {
+    font-weight: bold;
+  }
+  .resumen-compra p {
+    margin: 0;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #D35400;
+    text-align: right;
+  }
+
+  /* Botón de finalizar compra */
+ /*  .btn-finalizar {
+    background-color: #E67E22;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  .btn-finalizar:hover {
+    background-color: #D35400;
+  }  */

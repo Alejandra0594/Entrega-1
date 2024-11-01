@@ -233,20 +233,37 @@ miCarritoBtn.addEventListener('click', function() {
   //lleva a pagina de carrito
   window.location.href = 'cart.html';
 });
+
 // Función para actualizar el contador del carrito
 function actualizarContadorCarrito() {
     // Obtener el carrito desde el localStorage (o un array vacío si no hay nada guardado)
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   
-    // Actualizar el badge con la cantidad de productos
-    document.getElementById("cart-count").textContent = carrito.length;
-  }
+    // Calcular la cantidad total de productos en el carrito
+    let totalCantidad = carrito.reduce((acc, producto) => acc + (producto.quantity || 1), 0);
   
-  // Función para agregar un producto al carrito
-  function agregarAlCarrito(producto) {
-    // Obtener el carrito actual, añadir el nuevo producto y guardarlo de nuevo
+    // Actualizar el badge con la cantidad total de productos
+    document.getElementById("cart-count").textContent = totalCantidad;
+  }
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(producto) {
+    // Obtener el carrito actual del localStorage
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito.push(producto);
+  
+    // Verificar si el producto ya está en el carrito
+    let productoExistente = carrito.find(item => item.id === producto.id);
+  
+    if (productoExistente) {
+        // Si el producto ya existe, sumar la cantidad
+        productoExistente.quantity += producto.quantity || 1;
+    } else {
+        // Si el producto no existe, agregarlo al carrito con la cantidad proporcionada
+        producto.quantity = producto.quantity || 1; // Asegurar que tenga una cantidad
+        carrito.push(producto);
+    }
+  
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
   
     // Actualizar el contador

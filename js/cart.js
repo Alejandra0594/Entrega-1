@@ -1,3 +1,5 @@
+console.log(JSON.parse(localStorage.getItem("carrito")));
+
 // Variable global para almacenar el producto actual
 let productoActual = {};
 
@@ -61,10 +63,11 @@ function cargarCarrito() {
     contenedor.innerHTML = "";  // Limpiar el contenido del carrito
 
     carrito.forEach(product => {
+        // Asignación con valores correctos para cada propiedad
         let nombre = product.name || "Nombre no disponible";
-        let precio = parseFloat(product.price) || 0;
+        let precio = parseFloat(product.cost) || 0;  // Cambiado a 'cost'
         let moneda = product.currency || "USD";
-        let imagen = product.image || "https://via.placeholder.com/50";
+        let imagen = product.images && product.images.length > 0 ? product.images[0] : "https://via.placeholder.com/50";  // Cambiado a 'images'
         let cantidad = parseInt(product.quantity) || 1;
         let subtotal = precio * cantidad;
 
@@ -80,7 +83,7 @@ function cargarCarrito() {
         row.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between");
 
         row.innerHTML = `
-            <img src="${imagen}" class="imgcarrito img-fluid" alt="Imagen del producto" width="300">
+            <img src="${imagen}" class="imgcarrito img-fluid" alt="Imagen del producto" width="50">
             <div class="producto-info flex-grow-1 ms-3">
                 <h3>${nombre}</h3>
                 <p>Precio: ${moneda} ${precio.toFixed(2)}</p>
@@ -111,6 +114,7 @@ function cargarCarrito() {
         totalContainer.innerHTML += `<p>Total en UYU: ${totalUYU.toFixed(2)} UYU</p>`;
     }
 }
+
 
 // Evento delegado para manejar los botones de incrementar, decrementar y eliminar
 document.getElementById('carrito-container').addEventListener('click', function (e) {

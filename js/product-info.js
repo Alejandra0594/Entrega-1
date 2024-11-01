@@ -252,7 +252,9 @@ toggleModo.addEventListener('change', () => {
     localStorage.setItem('modoNoche', 'false'); // Guardar en localStorage
   }
 });
-// Manejo del clic en el botón "Comprar"
+
+
+//Parte 2 clic en el botón Comprar
 document.getElementById("buyButton").addEventListener("click", function() {
     const cantidad = document.getElementById("quantity").value; // Cantidad ingresada por el usuario
     const subtotal = productoActual.cost * cantidad; // Usar costo del producto actual

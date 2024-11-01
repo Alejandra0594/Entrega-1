@@ -1,4 +1,4 @@
-/* // Variable que guarda la data del producto
+// Variable que guarda la data del producto
 let productoActual = {};
 
 // Función para mostrar la data del producto
@@ -38,7 +38,7 @@ function mostrarInfoProduct(product) {
         thumbDiv.appendChild(thumbnail);
         thumbnailsContainer.appendChild(thumbDiv);
     }
-} */
+}
 // Paso 2,parte 2 Función para mostrar los comentarios
 function mostrarComentarios(comentarios, clear = true) {
     const reviewsContainer = document.getElementById('reviews');
@@ -252,8 +252,7 @@ toggleModo.addEventListener('change', () => {
     localStorage.setItem('modoNoche', 'false'); // Guardar en localStorage
   }
 });
-
-/* // Manejo del clic en el botón "Comprar"
+// Manejo del clic en el botón "Comprar"
 document.getElementById("buyButton").addEventListener("click", function() {
     const cantidad = document.getElementById("quantity").value; // Cantidad ingresada por el usuario
     const subtotal = productoActual.cost * cantidad; // Usar costo del producto actual
@@ -273,91 +272,27 @@ document.getElementById("buyButton").addEventListener("click", function() {
 
     // Navegar a cart.html
     window.location.href = "cart.html";
-}); */
+});
 
-/* //Para la parte de carrito
-// Simular datos del producto (ajusta según tu estructura real)
-const producto = {
-    nombre: "Producto X", // Reemplaza por el nombre dinámico del producto si es necesario.
-    costo: 100,
-    moneda: "USD",
-    imagen: "url-de-la-imagen.jpg" // Reemplaza con la URL real de la imagen.
-  };
 
-  // Agregar evento al botón de compra
-  document.getElementById('buyButton').addEventListener('click', function () {
-    const cantidad = parseInt(document.getElementById('quantity').value);
 
-    // Validar que la cantidad sea válida
-    if (cantidad <= 0 || isNaN(cantidad)) {
-      alert("Por favor, ingresa una cantidad válida.");
-      return;
+
+
+
+// Función para agregar un producto al carrito en localStorage
+function agregarAlCarrito(product, quantity) {
+    if (!product) {
+        console.error("Producto no definido al intentar agregar al carrito.");
+        return;
     }
 
-    // Crear el producto con la cantidad seleccionada
-    const productoConCantidad = { ...producto, cantidad };
-
-    // Obtener el carrito del localStorage o inicializar uno nuevo
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    // Agregar el producto al carrito
-    carrito.push(productoConCantidad);
-
-    // Guardar el carrito actualizado en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-
-    // Redirigir a la página del carrito
-    window.location.href = 'cart.html';
-  }); */
-
-
-  let productoActual = {};
-
-        function mostrarInfoProduct(product) {
-            document.querySelector(".product-title").textContent = product.name;
-            document.querySelector(".category-name").textContent = `Categoría: ${product.category}`;
-            document.querySelector(".sold-count").textContent = `${product.soldCount} vendidos`;
-            document.querySelector(".product-price").textContent = `${product.currency} ${product.cost}`;
-            document.querySelector(".product-description").textContent = product.description;
-            document.querySelector(".main-image").src = product.images[0];
-
-            let thumbnailsContainer = document.querySelector(".product-thumbnails");
-            thumbnailsContainer.innerHTML = "";
-            for (let image of product.images) {
-                let thumbDiv = document.createElement("div");
-                thumbDiv.className = "col-2";
-
-                let thumbnail = document.createElement("img");
-                thumbnail.src = image;
-                thumbnail.className = "img-thumbnail";
-                thumbnail.alt = "Miniatura del producto";
-
-                thumbDiv.appendChild(thumbnail);
-                thumbnailsContainer.appendChild(thumbDiv);
-            }
-        }
-
-        function fetchProductInfo(productId) {
-            const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    productoActual = data;
-                    mostrarInfoProduct(productoActual);
-                })
-                .catch(error => console.error("Error al obtener los datos del producto:", error));
-        }
-
-        // Agregar el producto al carrito con la cantidad indicada
-function agregarAlCarrito(product, quantity) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+    
     // Verificar si el producto ya está en el carrito
     let productoExistente = carrito.find(item => item.id === product.id);
-
+    
     if (productoExistente) {
-        productoExistente.quantity += quantity; // Sumar la cantidad seleccionada
+        productoExistente.quantity += quantity;  // Sumar cantidad
     } else {
         carrito.push({
             id: product.id,
@@ -368,51 +303,52 @@ function agregarAlCarrito(product, quantity) {
             quantity: quantity
         });
     }
-
+    
     // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
-
     alert("Producto agregado al carrito.");
+    actualizarContadorCarrito();  // Actualizar el contador del carrito
 }
-console.log(productoActual);
-
-
-    
-
 
 document.getElementById("buyButton").addEventListener("click", () => {
     const cantidad = parseInt(document.getElementById("quantity").value);
-    console.log(productoActual, cantidad); // Verificar que no sean undefined
-
+    if (!productoActual || cantidad <= 0) {
+        alert("Seleccione una cantidad válida.");
+        return;
+    }
     agregarAlCarrito(productoActual, cantidad);
 });
 
-
-console.log(productoActual); // Verifica que tenga los datos correctos
-console.log(localStorage.getItem("carrito")); // Verifica el contenido del carrito
-
-/* Para Mi Carrito */
-const miCarritoBtn = document.getElementById('miCarrito');
-
-//creo evento click
-miCarritoBtn.addEventListener('click', function() {
-  //lleva a pagina de carrito
-  window.location.href = 'cart.html';
-});
 // Función para actualizar el contador del carrito
 function actualizarContadorCarrito() {
     // Obtener el carrito desde el localStorage (o un array vacío si no hay nada guardado)
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   
-    // Actualizar el badge con la cantidad de productos
-    document.getElementById("cart-count").textContent = carrito.length;
-  }
+    // Calcular la cantidad total de productos en el carrito
+    let totalCantidad = carrito.reduce((acc, producto) => acc + (producto.quantity || 1), 0);
   
-  // Función para agregar un producto al carrito
-  function agregarAlCarrito(producto) {
-    // Obtener el carrito actual, añadir el nuevo producto y guardarlo de nuevo
+    // Actualizar el badge con la cantidad total de productos
+    document.getElementById("cart-count").textContent = totalCantidad;
+  }
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(producto) {
+    // Obtener el carrito actual del localStorage
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito.push(producto);
+  
+    // Verificar si el producto ya está en el carrito
+    let productoExistente = carrito.find(item => item.id === producto.id);
+  
+    if (productoExistente) {
+        // Si el producto ya existe, sumar la cantidad
+        productoExistente.quantity += producto.quantity || 1;
+    } else {
+        // Si el producto no existe, agregarlo al carrito con la cantidad proporcionada
+        producto.quantity = producto.quantity || 1; // Asegurar que tenga una cantidad
+        carrito.push(producto);
+    }
+  
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
   
     // Actualizar el contador

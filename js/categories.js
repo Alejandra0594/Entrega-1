@@ -170,3 +170,28 @@ miCarritoBtn.addEventListener('click', function() {
   //lleva a pagina de carrito
   window.location.href = 'cart.html';
 });
+
+
+
+  // Función para actualizar el contador del carrito
+function actualizarContadorCarrito() {
+    // Obtener el carrito desde el localStorage (o un array vacío si no hay nada guardado)
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  
+    // Actualizar el badge con la cantidad de productos
+    document.getElementById("cart-count").textContent = carrito.length;
+  }
+  
+  // Función para agregar un producto al carrito
+  function agregarAlCarrito(producto) {
+    // Obtener el carrito actual, añadir el nuevo producto y guardarlo de nuevo
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  
+    // Actualizar el contador
+    actualizarContadorCarrito();
+  }
+  
+  // Al cargar la página, actualizar el contador con los productos ya guardados
+  document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);

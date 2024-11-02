@@ -80,38 +80,40 @@ function cargarCarrito() {
 
         // Crear la fila del producto
         let row = document.createElement("div");
-        row.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between");
+        row.classList.add( "d-flex", "align-items-center", "justify-content-between");
 
         row.innerHTML = `
-            <img src="${imagen}" class="imgcarrito img-fluid" alt="Imagen del producto" width="50">
-            <div class="producto-info flex-grow-1 ms-3">
+                
+                <img src="${imagen}" class="imgcarrito img-fluid" alt="Imagen del producto" width="100" >
+                <div class="producto-info flex-grow-1 ms-3">
                 <h3>${nombre}</h3>
                 <p>Precio: ${moneda} ${precio.toFixed(2)}</p>
+    
 
                 <div class="cantidad-control d-flex align-items-center">
-                    <button class="btn btn-light btn-sm decrementar" data-id="${product.id}">-</button>
-                    <span class="mx-2 cantidad-texto">${cantidad}</span>
-                    <button class="btn btn-light btn-sm incrementar" data-id="${product.id}">+</button>
+                <button class="btn btn-light btn-sm decrementar" data-id="${product.id}">-</button>
+                <span class="mx-2 cantidad-texto">${cantidad}</span>
+                <button class="btn btn-light btn-sm incrementar" data-id="${product.id}">+</button>
                 </div>
+            
+        <div>Subtotal: ${moneda} ${subtotal.toFixed(2)}</div>
 
-                <div>Subtotal: ${moneda} ${subtotal.toFixed(2)}</div>
-
-                <button class="btn btn-sm btn-light eliminar-producto" data-id="${product.id}">
-                    <i class="bi bi-trash-fill" style="color: black;"></i>
-                </button>
-            </div>
-        `;
-        contenedor.appendChild(row);
-    });
+        <button class="btn btn-sm btn-light eliminar-producto" data-id="${product.id}">
+            <i class="bi bi-trash-fill" style="color: black;"></i>
+        </button>
+    </div>
+`;
+contenedor.appendChild(row);
+});
 
     // Mostrar los totales
     const totalContainer = document.getElementById("total");
     totalContainer.innerHTML = ""; // Limpiar el contenido anterior
     if (totalUSD > 0) {
-        totalContainer.innerHTML += `<p>Total en USD: ${totalUSD.toFixed(2)} USD</p>`;
+        totalContainer.innerHTML += `<p>Total: USD$ ${totalUSD.toFixed(2)} </p>`;
     }
     if (totalUYU > 0) {
-        totalContainer.innerHTML += `<p>Total en UYU: ${totalUYU.toFixed(2)} UYU</p>`;
+        totalContainer.innerHTML += `<p>Total: $U ${totalUYU.toFixed(2)} </p>`;
     }
 }
 
@@ -190,3 +192,13 @@ function agregarAlCarrito(producto) {
   
   // Al cargar la página, actualizar el contador con los productos ya guardados
   document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
+
+//que "bienvenido, miPerfil" sea un enlace a my-profile.html
+const miPerfilBtn = document.getElementById('miPerfil');
+
+//creo evento click
+miPerfilBtn.addEventListener('click', function() {
+  //lleva a pagina de tu perfil
+  window.location.href = 'my-profile.html';
+});
+  

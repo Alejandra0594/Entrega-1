@@ -1,92 +1,161 @@
-.carrito-container{
-    align-items: center;
-    border: 1px solid white !important;
+/* Ajustes generales de estilo */
+body {
+  background-color: #FAE5D3;
+  font-family: Arial, sans-serif;
 }
 
-.d-flex.align-items-center.justify-content-between{
+/* Contenedor principal */
+#Compra {
+  margin-top: 2em;
+  padding: 1em;
+}
+
+/* Estilos para columnas */
+#Columna1, #Columna2 {
+  padding: 1em;
   margin-top: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-bottom: 2em;
+  /* border-radius: 8px; */
 }
 
-/* .imgcarrito{
-  border: 1px solid white !important;
-} */
-.product-info{
+#Columna1 {
+  background-color: white;
+}
+
+#Columna2 {
+  background-color: #ffa64d;
+  text-align: center;
+}
+
+/* Ajuste del contenedor del carrito */
+#carrito-container img {
+  width: 100%;
+  max-width: 15em;
+  height: auto;
+  margin-bottom: 1em;
   margin-top: 2em;
 }
-.list-group-item{
+
+.d-flex.align-items-center.justify-content-between {
+  margin: 1em;
+}
+
+.product-info {
   margin-top: 2em;
 }
+
+/* Ajustes de cantidad de control */
 .cantidad-control button {
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 1px solid #5f5e5d;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #5f5e5d;
 }
 
 .cantidad-texto {
-    font-size: 1.2rem;
-    width: 40px;
-    text-align: center;
+  font-size: 1.2rem;
+  width: 40px;
+  text-align: center;
 }
 
-/* Estilos generales */
-body {
-     background-color: #FAE5D3;
-    font-family: Arial, sans-serif;
+/* Botón de finalizar compra */
+#checkout-btn {
+  background-color: white;
+  border-color: black;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes de la sección de resumen de compra */
+#Contenido2 {
+  padding: 1em;
+  text-align: left;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  #Columna1, #Columna2 {
+      flex-direction: column;
+      text-align: center;
+      padding: 1em;
+      margin: 0;
+  }
+  .d-flex.align-items-center.justify-content-between {
+    flex-direction: column;
+    margin: 1em;
+  }
+  .cantidad-control.d-flex.align-items-center { 
+    /* flex-direction: column;  */
+    align-items: center; 
+    justify-content: center; }
+
+  /* Ajustes para el contenedor del carrito */
+  #carrito-container img {
+      width: 100%;
+      max-width: 10em;
+      height: auto;
+      margin-bottom: 1em;
+      margin-top: 1em;
+  }
+  
+  .max-2.cantidad-texto{
+    align-items: center;
   }
 
-  #Columna2 {
-    background-color: #ffa64d;
-    text-align: center;
-
+  /* Ajustes para el botón de finalizar compra */
+  #checkout-btn {
+      width: 100%;
+      margin-top: 1em;
   }
-  #Compra {
+}
+
+/* Media Queries para pantallas medianas */
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Ajustes para columnas en pantallas medianas */
+  #Columna1, #Columna2 {
+    flex: 1;
+    padding: 1em;
+    margin: 0;
+  }
+  
+  .d-flex.align-items-center.justify-content-between {
+    flex-direction: column;
+    margin: 1em;
+  }
+
+  #carrito-container img {
+    width: 100%;
+    max-width: 12em;
+    height: auto;
+    margin-bottom: 1em;
     margin-top: 2em;
   }
 
-  #Columna1 {
-    background-color: white;
-    }
-
- 
-  #total {
-    text-align: left;
-    padding: 1em;
-    
-  }
-  #Contenido2 {
-    margin-top: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-bottom: 2em;
+  .cantidad-control.d-flex.align-items-center { 
+    /* flex-direction: column;  */
+    align-items: center; 
+    justify-content: center; 
   }
   
-  #carrito-container img {
-    width: 10em;
+  /* Ajustes de tamaño de imagen */
+/*   #carrito-container img {
+    max-width: 12em;
     height: auto;
-    margin-right: 2em;
-  }
-
-  .resumen-compra h3 {
-   /*  font-weight: bold; */
-    background-color: black;
-  }
-
-
-  /* Botón de finalizar compra */
-  #checkout-btn {
-    background-color: white;
-    border-color: black;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: flex;
-    bottom: 1em;
+    margin-top: 1em;
     margin-bottom: 1em;
+  } */
+
+  /* Botón de finalizar compra en pantallas medianas */
+  #checkout-btn {
+    width: 80%;
+    margin-top: 1em;
   }
+
+  /* Espaciado de resumen de compra */
+  #Contenido2 {
+    padding: 1.5em;
+  }
+}

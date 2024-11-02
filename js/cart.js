@@ -143,6 +143,9 @@ document.getElementById('carrito-container').addEventListener('click', function 
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     cargarCarrito();  // Recargar el carrito
+    
+     // Actualizar el contador del carrito
+     actualizarContadorCarrito();
 });
 
 // Lógica principal cuando la página esté lista

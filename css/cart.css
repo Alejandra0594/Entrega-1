@@ -1,10 +1,24 @@
 .carrito-container{
     align-items: center;
-}
-.imgcarrito{
-border-color: black;
+    border: 1px solid white !important;
 }
 
+.d-flex.align-items-center.justify-content-between{
+  margin-top: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+/* .imgcarrito{
+  border: 1px solid white !important;
+} */
+.product-info{
+  margin-top: 2em;
+}
+.list-group-item{
+  margin-top: 2em;
+}
 .cantidad-control button {
     width: 30px;
     height: 30px;
@@ -13,7 +27,7 @@ border-color: black;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid #ffa64d;
+    border: 1px solid #5f5e5d;
 }
 
 .cantidad-texto {
@@ -24,72 +38,55 @@ border-color: black;
 
 /* Estilos generales */
 body {
- 
-    transition: background-color 0.5s ease, color 0.5s ease;
-    /* background-color: #FAE5D3; */
+     background-color: #FAE5D3;
     font-family: Arial, sans-serif;
   }
 
-  /* Barra de navegación */
-  .navbar {
-    background-color: #000;
+  #Columna2 {
+    background-color: #ffa64d;
+    text-align: center;
+
   }
-  .navbar .nav-link {
-    color: #fff !important;
+  #Compra {
+    margin-top: 2em;
+  }
+
+  #Columna1 {
+    background-color: white;
+    }
+
+ 
+  #total {
+    text-align: left;
+    padding: 1em;
     
   }
-
-  /* Contenedor principal */
-  .container {
-    /* background-color: #ffa64d;  */
-    border-radius: 1em;
-    padding: 0,5em;
-    margin-top: o,5em;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  #Contenido2 {
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
   }
-
-  /* Estilo para el carrito y productos */
-  #carrito-container {
-    background-color: #F7F7F7;
-    padding: 15px;
-    border-radius: 8px;
-  }
+  
   #carrito-container img {
-    width: 80px;
+    width: 10em;
     height: auto;
-    margin-right: 10px;
+    margin-right: 2em;
   }
 
-  /* Sección de resumen de compra */
-  .resumen-compra {
-    background-color: #F8B56D;
-    padding: 20px;
-    border-radius: 8px;
-    color: #333;
+  .resumen-compra h3 {
+   /*  font-weight: bold; */
+    background-color: black;
   }
-  .resumen-compra h2 {
-    font-weight: bold;
-  }
-  .resumen-compra p {
-    margin: 0;
-  }
-  .total {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #D35400;
-    text-align: right;
-  }
+
 
   /* Botón de finalizar compra */
- /*  .btn-finalizar {
-    background-color: #E67E22;
-    color: #fff;
-    border: none;
-    width: 100%;
+  #checkout-btn {
+    background-color: white;
+    border-color: black;
     padding: 10px;
-    font-weight: bold;
-    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: flex;
+    bottom: 1em;
+    margin-bottom: 1em;
   }
-  .btn-finalizar:hover {
-    background-color: #D35400;
-  }  */

@@ -109,18 +109,6 @@ align-content: right;
     height: 20px;
     cursor: pointer;
   }
-  /* Estilos del interruptor */
-/* Estilos del interruptor */
-.form-check-input {
-    cursor: pointer;
-    appearance: none;
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-    position: relative;
-    transition: background-color 0.3s;
-  }
   
   /* Estilo del círculo móvil */
   .form-check-input:before {
@@ -144,8 +132,6 @@ align-content: right;
     position: relative;
     transition: background-color 0.3s, transform 0.3s;
   }
-  
-
 
   .form-check-input:checked {
     background-color: #ff8c1a;
@@ -222,10 +208,6 @@ body.dark-mode footer#text {
 body.dark-mode .bi-person {
     fill: white; /* Icono blanco en modo oscuro */
 }
-
-
-
-
 
 /* Estilo del rectángulo que contiene todo */
 .contenedor-rectangulo {

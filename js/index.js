@@ -25,17 +25,6 @@ miPerfilBtn.addEventListener('click', function() {
 //desde el menu de cerrar sesión, crea un enlace a login.html
 const cerrarSesion = document.getElementById('cerrarSesion');
 
-//creo un evento click
-
-
-/* Aca hay problema, porque ya no tenemos un boton cerrar sesion */
-/* cerrarSesionBtn.addEventListener('click', function()
-
-{
-    window.location.href = 'login.html';
-}); */
-
-
 /* Para Mi Carrito */
 const miCarritoBtn = document.getElementById('miCarrito');
 

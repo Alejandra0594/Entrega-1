@@ -10,10 +10,6 @@
   cursor: pointer; /* esto cambia el cursor a una mano al pasar por encima */
 }
 
-/* .jumbotron .display-4 {
-  font-weight: bold;
-} */
-
 .navbar .dropdown-toggle {
   display: flex;
   align-items: center;
@@ -71,8 +67,6 @@ nav a {
   margin-bottom: 0;
   margin-top: 1%;
   width: 100%;
- /*  background-color: #53C0FB; */
-  /* color: black; */
   size: cover;
   position: center;
   font-weight: bold;
@@ -118,47 +112,6 @@ nav a {
   }
 }
 
-/* .jumbotron {
-  height: 50vh;
-  padding: 5em inherit;
-  margin-bottom: 0;
-  margin-top: 0%;
-  width: 100%;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: black;
-  font-weight: bold;
-}
-
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  text-shadow: 1px 1px 2px grey;
-}
-
-.jumbotron .lead {
-  font-size: 38px;
-}
- */
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -294,10 +247,6 @@ a.custom-card:hover {
   color: white;
 }
 
-/* .dark-mode footer {
-  background-color: #222;
-  color: #fff;
-} */
 
 .dark-mode .navbar {
   background-color: #343a40; /* Navbar en Modo Noche */

@@ -109,28 +109,7 @@ function showAlertError(message) {
 }
 
 // Combinación de todas las funciones de `DOMContentLoaded`
- document.addEventListener('DOMContentLoaded', function() {
-    /* // Cargar valores del localStorage en el formulario
-    if (localStorage.getItem('nombre')) {
-        document.getElementById('nombre').value = localStorage.getItem('nombre');
-    }
-    if (localStorage.getItem('segnombre')) {
-        document.getElementById('segnombre').value = localStorage.getItem('segnombre');
-    }
-    if (localStorage.getItem('apellido')) {
-        document.getElementById('apellido').value = localStorage.getItem('apellido');
-    }
-    if (localStorage.getItem('segapellido')) {
-        document.getElementById('segapellido').value = localStorage.getItem('segapellido');
-    }
-    if (localStorage.getItem('email')) {
-        document.getElementById('email').value = localStorage.getItem('email');
-    }
-    if (localStorage.getItem('contacto')) {
-        document.getElementById('contacto').value = localStorage.getItem('contacto');
-    } */
-
-   
+ document.addEventListener('DOMContentLoaded', function() { 
 
     // Listeners para alternar entre Modo Día y Noche
     const toggleModo = document.getElementById('toggleModo');
@@ -161,22 +140,17 @@ function showAlertError(message) {
 // Función para activar el Modo Noche
 function activarModoNoche() {
     document.body.classList.add('dark-mode'); // Agregar clase para fondo oscuro
-   /*  document.querySelector('.navbar').classList.remove('navbar-light', 'bg-light');
-    document.querySelector('.navbar').classList.add('navbar-dark', 'bg-dark'); */
-    labelModo.innerHTML = '<i class="bi bi-sun"></i>';
+       labelModo.innerHTML = '<i class="bi bi-sun"></i>';
 }
 
 // Función para activar el Modo Día
 function activarModoDia() {
     document.body.classList.remove('dark-mode'); // Quitar clase de fondo oscuro
     document.body.classList.add('light-mode'); // Agregar clase para fondo claro
-/*     document.querySelector('.navbar').classList.remove('navbar-dark', 'bg-dark');
-    document.querySelector('.navbar').classList.add('navbar-light', 'bg-light'); */
     labelModo.innerHTML = '<i class="bi bi-moon"></i>';
 }
 
 /* funcion para que aparezca el campo de email, rellenado por el emai que se ingresa en el login */
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const emailUsuario = sessionStorage.getItem('nombreUsuario'); // Recupera el email de sessionStorage
@@ -272,3 +246,5 @@ function agregarAlCarrito(producto) {
   
   // Al cargar la página, actualizar el contador con los productos ya guardados
   document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
+
+  

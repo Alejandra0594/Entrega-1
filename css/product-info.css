@@ -4,18 +4,11 @@ body {
 
 .contenedorimg{
   margin-top: 2rem;
- /*  margin-left: 1rem; */
   margin-right: 5rem;
 }
 
 /* Sección de miniaturas de productos */
 .product-thumbnails {
- /*  margin-bottom: 20px; */
- /*  margin-left: 0%; */
- /*  display: flex; */
-  /* flex-direction: column;  */ /* Alinear las miniaturas en una columna */
- /*  gap: 15px;  */ /* Espacio entre las miniaturas */
-/*   max-width: 100%; */
   border-color: black;
   
 }
@@ -31,13 +24,7 @@ body {
 }
 
 .col-md-8 {
-  /* float: left; */
- /*  border: 1px solid #ddd; 
-  border-radius: 5px; 
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); */
-  /* margin-right: 0%; */
-  max-width: 100%;  /* Ajuste del ancho máximo a 100% */
-  /* height: auto;  */ /* Mantener la proporción */
+   max-width: 100%;  /* Ajuste del ancho máximo a 100% */
   object-fit: contain;  /* Mantener proporciones sin distorsionar */
   display: flex;
   align-items: center;
@@ -46,28 +33,15 @@ body {
 
 .img-fluid.main-image {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
- /*  min-width: 168px; */
- /*  min-height: auto; */
  display: flex;
  align-items: center;
   object-fit: contain;  /* Mantiene la proporción de la imagen y recorta si es necesario */
-/*   margin: 0 auto; */
   border: 5px solid white;  /* Aplica un borde blanco */
   border-radius: 5px;  /* Bordes ligeramente redondeados */
 }
 
-/* Ajusta el margen derecho de la imagen principal */
-/* .main-image { */
-  /* float: left; */
- /*  margin-right: 0%;  */ /* Reducido para acercar la imagen principal a las miniaturas */
-/*   max-width: 44em;
-  height: auto;
-  object-fit: cover;
-} */
-
 /* Ajusta la disposición de las miniaturas */
 .product-thumbnails {
- /*  margin-left: 0; */  /* Eliminado el margen izquierdo para acercar las miniaturas */
   display: flex;
   flex-direction: column;
   gap: 10px;  /* Ajustar el espacio entre las miniaturas */
@@ -88,8 +62,6 @@ body {
   transform: rotate(180deg);
   font-size: 1em; /* Tamaño de la fuente */
   color: #333; /* Color del texto */
-  /* text-align: right; */
-  /* margin-bottom: 330px; */ /* Espacio entre el texto y la imagen */
 }
 
 .product-price {
@@ -109,8 +81,6 @@ body {
   margin-left: 50px;
   font-size: 70%;
 }
-
-
 
 .product-description {
   margin-left: 40px;
@@ -169,11 +139,6 @@ button {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
 }
 
-/* .barra-productos img {
-  max-width: 100%;  */ /* Asegura que la imagen no exceda el contenedor */
-/*   border-radius: 8px;
-  margin-bottom: 10px;
-} */
 .barra-productos img {
   max-width: 100%; 
   height: auto;    
@@ -289,9 +254,6 @@ textarea {
   }
 }
 
-
-
-
  /* parte Ale*/
 #submit-review {
   background-color: #007bff;
@@ -302,7 +264,6 @@ textarea {
   cursor: pointer;
   width: 10em;
   height: 3em;
-  /* margin: 0 right; */ /* Centra horizontalmente el botón */
   display: block; /* Asegura que el botón ocupe toda la fila disponible */
   float: right;
 }

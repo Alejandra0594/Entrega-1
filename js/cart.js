@@ -142,21 +142,18 @@ document.getElementById('carrito-container').addEventListener('click', function 
     }
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    cargarCarrito();  // Recargar el carrito
+    cargarCarrito();  // Recargar el carrito (si tienes esta función implementada)
     
-     // Actualizar el contador del carrito
-     actualizarContadorCarrito();
+    // Actualizar el contador del carrito
+    actualizarContadorCarrito();
 });
 
 // Lógica principal cuando la página esté lista
 document.addEventListener("DOMContentLoaded", () => {
-    const productId = 1;  // Cambia según corresponda
-   /*  fetchProductInfo(productId); */
-    cargarCarrito();
-    actualizarContadorCarrito();
-
-    
+    cargarCarrito();  // Asegúrate de que esta función renderiza los productos en el carrito
+    actualizarContadorCarrito();  // Inicializa el contador del carrito
 });
+
 // Función para actualizar el contador del carrito
 function actualizarContadorCarrito() {
     // Obtener el carrito desde el localStorage (o un array vacío si no hay nada guardado)
@@ -174,6 +171,7 @@ function agregarAlCarrito(producto) {
     // Obtener el carrito actual del localStorage
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   
+     
     // Verificar si el producto ya está en el carrito
     let productoExistente = carrito.find(item => item.id === producto.id);
   
@@ -205,3 +203,100 @@ miPerfilBtn.addEventListener('click', function() {
   window.location.href = 'my-profile.html';
 });
   
+//Parte 4 Pau
+document.getElementById('checkout-btn').addEventListener('click', finalizarCompra);
+
+function finalizarCompra() {
+    
+  // Validación de dirección
+  const nombreDepartamento = document.getElementById('nombredepart').value.trim();
+  const nombreLocalidad = document.getElementById('nombreLocalidad').value.trim();
+  const numeroPuerta = document.getElementById('numeroPuerta').value.trim();
+  const esquinaNombre = document.getElementById('esquinaNombre').value.trim();
+
+  if (!nombreDepartamento || !nombreLocalidad || !numeroPuerta || !esquinaNombre) {
+    alert('Por favor, complete todos los campos de la dirección.');
+    return;
+  }
+
+  // Validación de tipo de envío
+  const tipoEnvio = document.getElementById('select-delivery').value;
+  if (!tipoEnvio) {
+    alert('Por favor, seleccione un tipo de envío.');
+    return;
+  }
+
+  // Validación de cantidades de productos en el carrito
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+if (carrito.length === 0) {
+    alert('El carrito está vacío. Agrega productos antes de finalizar la compra.');
+    return;
+}
+
+
+  // Validación de forma de pago
+  const formaDePago = document.querySelector('input[name="formaDePago"]:checked');
+  if (!formaDePago) {
+    alert('Por favor, seleccione una forma de pago.');
+    return;
+  }
+
+  // Validación de campos de forma de pago seleccionada
+  if (formaDePago.value === 'credit') {
+    const numeroCredito = document.getElementById('numeroCredito').value.trim();
+    const codigoSeguridad = document.getElementById('codigoSeguridad').value.trim();
+    const vencimiento = document.getElementById('vencimiento').value.trim();
+
+    if (!numeroCredito || !codigoSeguridad || !vencimiento) {
+      alert('Por favor, complete todos los campos de la tarjeta de crédito.');
+      return;
+    }
+  } else if (formaDePago.value === 'bank') {
+    const numeroCuenta = document.getElementById('numeroCuenta').value.trim();
+    if (!numeroCuenta) {
+      alert('Por favor, complete el número de cuenta para la transferencia bancaria.');
+      return;
+    }
+  }
+
+  // Si todas las validaciones pasan, se muestra el mensaje de éxito
+  alert('¡Compra finalizada con éxito! Gracias por su compra.');
+}
+
+
+// Pau Funcionalidad de la parte de pagos con tarjeta
+// Elementos de los campos de pago
+const radioCredito = document.getElementById("credito");
+const radioTransferencia = document.getElementById("transferencia");
+const numeroCredito = document.getElementById("numeroCredito");
+const codigoSeguridad = document.getElementById("codigoSeguridad");
+const vencimiento = document.getElementById("vencimiento");
+const numeroCuenta = document.getElementById("numeroCuenta");
+
+// Función para habilitar o deshabilitar campos según la opción de pago seleccionada
+function actualizarCamposPago() {
+  if (radioCredito.checked) {
+    // Habilitar campos de tarjeta de crédito
+    numeroCredito.disabled = false;
+    codigoSeguridad.disabled = false;
+    vencimiento.disabled = false;
+    
+    // Deshabilitar campo de transferencia bancaria
+    numeroCuenta.disabled = true;
+  } else if (radioTransferencia.checked) {
+    // Habilitar campo de transferencia bancaria
+    numeroCuenta.disabled = false;
+    
+    // Deshabilitar campos de tarjeta de crédito
+    numeroCredito.disabled = true;
+    codigoSeguridad.disabled = true;
+    vencimiento.disabled = true;
+  }
+}
+
+// Eventos para cambiar la selección de forma de pago
+radioCredito.addEventListener("change", actualizarCamposPago);
+radioTransferencia.addEventListener("change", actualizarCamposPago);
+
+// Llama a la función al cargar la página para asegurarte de que los campos estén correctamente deshabilitados
+actualizarCamposPago();

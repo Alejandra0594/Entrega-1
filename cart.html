@@ -217,13 +217,18 @@
         <h1>Resumen de compra</h1>
         
         <div class="d-flex flex-column align-items-end mt-3">
-          <div class="summary" style="align-self: flex-start; margin-top: -20px;">
+          <div id="costos" class="summary" style="align-self: flex-start; margin-top: -20px;">
             <br>
-            <p>Subtotal: USD</p>
-            <p>Subtotal: UY</p>
-            <p>Costo de envio: </p>
-            <p id="total"></p>
+            <div id="subtotalUSD">Subtotal (USD): $0</div>
+            <div id="subtotalUYU">Subtotal (UYU): $0</div>
+            <br>
+            <div id="costoEnvioUSD">Costo de envío (USD): $0</div>
+            <div id="costoEnvioUYU">Costo de envío (UYU): $0</div>
+            <hr>
+            <div id="totalUSD">Total (USD): $0</div>
+            <div id="totalUYU">Total (UYU): $0</div>
           </div>
+
           <div class="text-center mt-4 w-100">
             <button id="checkout-btn" class="btn">Finalizar Compra</button>
           </div>

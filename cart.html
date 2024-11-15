@@ -11,7 +11,6 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/cart.css"> <!-- Estilos personalizados para cart -->
-
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" 
   referrerpolicy="no-referrer" />
@@ -93,7 +92,7 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group text-center text-sm-start">
                   <label for="nombreDepart">Departamento <i class="fa-solid fa-route"></i></label>
-                  <input type="text" class="form-control my-3" id="nombredepart"
+                  <input type="text" class="form-control my-3" id="nombreDepart"
                     placeholder="Ingrese el departamento donde reside" />
 
                   <div class="align-self-center mt-3 mb-5 text-danger d-none" id="nombreDeCalleAlertContainer">
@@ -103,7 +102,7 @@
               </div>
               <div class="col-12 col-sm-6">
                 <div class="form-group text-center text-sm-start">
-                  <label for="nombreLocalidad"> Localidad <i class="fa-solid fa-house"></i></label>
+                  <label for="nombreLocalidad"> Localidad <i class="fa-solid fa-map-pin"></i></label>
                   <input type="text" class="form-control my-3" id="nombreLocalidad"
                     placeholder="Ingrese el nombre de su localidad" />
 
@@ -113,7 +112,19 @@
                 </div>
               </div>
             </div>
+
           <div class="row gx-4 gy-4">
+            <div class="col-12 col-sm-6">
+              <div class="form-group text-center text-sm-start">
+                <label for="nombreCalle"> Calle <i class="fa-solid fa-road"></i></label>
+                <input type="text" class="form-control my-3" id="nombreCalle"
+                  placeholder="Ingrese el nombre de su calle" />
+
+                <div class="align-self-center mt-3 mb-5 text-danger d-none" id="calleNombreAlertContainer">
+                  <span id="calleNombreAlert">Debe seleccionar una calle </span>
+                </div>
+              </div>
+            </div>
               <div class="col-12 col-sm-6">
                 <div class="form-group text-center text-sm-start">
                   <label for="numeroPuerta"> Número de puerta <i class="fa-solid fa-door-open"></i></label>
@@ -125,15 +136,15 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-sm-6">
-                <div class="form-group text-center text-sm-start">
-                  <label for="esquinaNombre">Nombre de la Esquina <i class="fa-solid fa-road"></i></label>
-                  <input type="text" class="form-control my-3" id="esquinaNombre"
-                    placeholder="Ingrese el nombre de su esquina" />
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group text-center text-sm-start">
+                <label for="esquinaNombre" >Nombre de la Esquina<i class="fa-solid fa-diamond-turn-right"></i></label>
+                <input type="text" class="form-control my-3" id="esquinaNombre"
+                  placeholder="Ingrese el nombre de su esquina" />
 
-                  <div class="align-self-center mt-3 mb-5 text-danger d-none" id="nombreDeEsquinaAlertContainer">
-                    <span id="nombreDeEsquinaAlert">Debe seleccionar un nombre de Esquina</span>
-                  </div>
+                <div class="align-self-center mt-3 mb-5 text-danger d-none" id="nombreDeEsquinaAlertContainer">
+                  <span id="nombreDeEsquinaAlert">Debe seleccionar un nombre de Esquina</span>
                 </div>
               </div>
             </div>

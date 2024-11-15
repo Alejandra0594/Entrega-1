@@ -64,6 +64,9 @@ body {
   padding: 1em;
   text-align: left;
 }
+#esquinaNombre{
+  width: 16em;
+}
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
   #Columna1, #Columna2 {
@@ -143,4 +146,6 @@ body {
 .Forma{
   text-align: center;
   align-content: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
 }

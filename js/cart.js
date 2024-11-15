@@ -107,7 +107,7 @@ if (product.currency === "USD") {
 });
 
 // Calcular totales y mostrarlos Parte 3
-const totalUSD = subtotalUSD; // Puedes agregar costos de envío si quieres
+const totalUSD = subtotalUSD; 
 const totalUYU = subtotalUYU;
 document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
 document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
@@ -270,15 +270,17 @@ document.getElementById('checkout-btn').addEventListener('click', finalizarCompr
 function finalizarCompra() {
     
   // Validación de dirección
-  const nombreDepartamento = document.getElementById('nombredepart').value.trim();
+  const nombreDepartamento = document.getElementById('nombreDepart').value.trim();
   const nombreLocalidad = document.getElementById('nombreLocalidad').value.trim();
   const numeroPuerta = document.getElementById('numeroPuerta').value.trim();
   const esquinaNombre = document.getElementById('esquinaNombre').value.trim();
+  const nombreCalle = document.getElementById('nombreCalle').value.trim();
 
-  if (!nombreDepartamento || !nombreLocalidad || !numeroPuerta || !esquinaNombre) {
+  if (!nombreDepartamento || !nombreLocalidad || !numeroPuerta || !esquinaNombre || !nombreCalle) {
     alert('Por favor, complete todos los campos de la dirección.');
     return;
   }
+
 
   // Validación de tipo de envío
   const tipoEnvio = document.getElementById('select-delivery').value;

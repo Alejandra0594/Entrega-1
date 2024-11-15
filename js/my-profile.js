@@ -72,8 +72,7 @@ function validar() {
         if (email.value) localStorage.setItem('email', email.value);
         if (contacto.value) localStorage.setItem('contacto', contacto.value);
 
-        // Limpiar formulario después del guardado
-        document.getElementById("registerForm").reset();
+        
         showAlertSuccess();
     }
 }

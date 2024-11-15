@@ -106,33 +106,27 @@ if (product.currency === "USD") {
 }
 });
 
-// Calcular totales y mostrarlos Parte 3
-const totalUSD = subtotalUSD; 
-const totalUYU = subtotalUYU;
-document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
-document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
-document.getElementById("totalUSD").textContent = `Total (USD): $${totalUSD.toFixed(2)}`;
-document.getElementById("totalUYU").textContent = `Total (UYU): $${totalUYU.toFixed(2)}`;
 
 calcularCostos();
 }
 
-//Calcular subtotal, envio y total, Parte 3
-function calcularCostos() {
-  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  const tipoEnvio = document.getElementById("select-delivery").value;
-  const porcentajesEnvio = {
-      Standard: 0.05,
-      Express: 0.07,
-      Premium: 0.15
-  };
-  const tipoCambio = 40; // Tipo de cambio de USD a UYU
+//Parte 3
 
-  // Inicializar los subtotales
+function mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio) {
+  const totalUSD = subtotalUSD + costosEnvio.usd;
+  const totalUYU = subtotalUYU + costosEnvio.uyu;
+
+  document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
+  document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
+  document.getElementById("costoEnvioUSD").textContent = `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}`;
+  document.getElementById("costoEnvioUYU").textContent = `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}`;
+  document.getElementById("totalUSD").textContent = `Total (USD): $${totalUSD.toFixed(2)}`;
+  document.getElementById("totalUYU").textContent = `Total (UYU): $${totalUYU.toFixed(2)}`;
+}
+function calcularTotales(carrito) {
   let subtotalUSD = 0;
   let subtotalUYU = 0;
 
-  // Calcular subtotales
   carrito.forEach(producto => {
       if (producto.currency === "USD") {
           subtotalUSD += producto.cost * producto.quantity;
@@ -143,23 +137,13 @@ function calcularCostos() {
       }
   });
 
-  // Calcular el costo de envío en USD y UYU
-  const costoEnvioUSD = subtotalUSD * porcentajesEnvio[tipoEnvio];
-  const costoEnvioUYU = subtotalUYU * porcentajesEnvio[tipoEnvio];
+  return { subtotalUSD, subtotalUYU };
+}
 
-  // Calcular los totales finales
-  const totalUSD = subtotalUSD + costoEnvioUSD;
-  const totalUYU = subtotalUYU + costoEnvioUYU;
+function mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio) {
+  const totalUSD = subtotalUSD + costosEnvio.usd;
+  const totalUYU = subtotalUYU + costosEnvio.uyu;
 
-  // Mostrar los resultados en la interfaz
-  document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
-  document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
-  document.getElementById("costoEnvioUSD").textContent = `Costo de envío (USD): $${costoEnvioUSD.toFixed(2)}`;
-  document.getElementById("costoEnvioUYU").textContent = `Costo de envío (UYU): $${costoEnvioUYU.toFixed(2)}`;
-  document.getElementById("totalUSD").textContent = `Total (USD): $${totalUSD.toFixed(2)}`;
-  document.getElementById("totalUYU").textContent = `Total (UYU): $${totalUYU.toFixed(2)}`;
-
-  // Mostrar los resultados en la interfaz
   const subtotalUSDDisplay = document.getElementById("subtotalUSD");
   const subtotalUYUDisplay = document.getElementById("subtotalUYU");
   const costoEnvioUSDDisplay = document.getElementById("costoEnvioUSD");
@@ -169,13 +153,38 @@ function calcularCostos() {
 
   subtotalUSDDisplay.textContent = subtotalUSD > 0 ? `Subtotal (USD): $${subtotalUSD.toFixed(2)}` : "";
   subtotalUYUDisplay.textContent = subtotalUYU > 0 ? `Subtotal (UYU): $${subtotalUYU.toFixed(2)}` : "";
-  costoEnvioUSDDisplay.textContent = costoEnvioUSD > 0 ? `Costo de envío (USD): $${costoEnvioUSD.toFixed(2)}` : "";
-  costoEnvioUYUDisplay.textContent = costoEnvioUYU > 0 ? `Costo de envío (UYU): $${costoEnvioUYU.toFixed(2)}` : "";
-  totalUSDDisplay.textContent = totalUSD > 0 ? `Total (USD): $${totalUSD.toFixed(2)}` : "";
-  totalUYUDisplay.textContent = totalUYU > 0 ? `Total (UYU): $${totalUYU.toFixed(2)}` : "";
-
+  costoEnvioUSDDisplay.textContent = subtotalUSD > 0 ? `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}` : "";
+  costoEnvioUYUDisplay.textContent = subtotalUYU > 0 ? `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}` : "";
+  totalUSDDisplay.textContent = subtotalUSD > 0 ? `Total (USD): $${totalUSD.toFixed(2)}` : "";
+  totalUYUDisplay.textContent = subtotalUYU > 0 ? `Total (UYU): $${totalUYU.toFixed(2)}` : "";
 }
+
+function calcularCostos() {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const tipoEnvio = document.getElementById("select-delivery").value;
+  const porcentajesEnvio = {
+      Standard: 0.05,
+      Express: 0.07,
+      Premium: 0.15
+  };
+
+  const { subtotalUSD, subtotalUYU } = calcularTotales(carrito);
+  const costosEnvio = {
+      usd: subtotalUSD * porcentajesEnvio[tipoEnvio],
+      uyu: subtotalUYU * porcentajesEnvio[tipoEnvio]
+  };
+
+  mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio);
+}
+
 document.getElementById("select-delivery").addEventListener("change", calcularCostos);
+
+// Llamar a la función calcularCostos para inicializar los totales cuando la página se carga
+document.addEventListener('DOMContentLoaded', calcularCostos);
+
+//Fin parte 3
+
+
 
 // Evento delegado para manejar los botones de incrementar, decrementar y eliminar
 document.getElementById('carrito-container').addEventListener('click', function (e) {

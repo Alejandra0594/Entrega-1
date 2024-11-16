@@ -94,8 +94,6 @@ function cargarCarrito() {
 contenedor.appendChild(row);
 
 //Parte 3 
-document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
-
 
 if (product.currency === "USD") {
   subtotalUSD += product.cost * product.quantity;
@@ -110,54 +108,6 @@ if (product.currency === "USD") {
 calcularCostos();
 }
 
-//Parte 3
-
-function mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio) {
-  const totalUSD = subtotalUSD + costosEnvio.usd;
-  const totalUYU = subtotalUYU + costosEnvio.uyu;
-
-  document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
-  document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
-  document.getElementById("costoEnvioUSD").textContent = `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}`;
-  document.getElementById("costoEnvioUYU").textContent = `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}`;
-  document.getElementById("totalUSD").textContent = `Total (USD): $${totalUSD.toFixed(2)}`;
-  document.getElementById("totalUYU").textContent = `Total (UYU): $${totalUYU.toFixed(2)}`;
-}
-function calcularTotales(carrito) {
-  let subtotalUSD = 0;
-  let subtotalUYU = 0;
-
-  carrito.forEach(producto => {
-      if (producto.currency === "USD") {
-          subtotalUSD += producto.cost * producto.quantity;
-      } else if (producto.currency === "UYU") {
-          subtotalUYU += producto.cost * producto.quantity;
-      } else {
-          console.error("Moneda no válida para el producto:", producto);
-      }
-  });
-
-  return { subtotalUSD, subtotalUYU };
-}
-
-function mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio) {
-  const totalUSD = subtotalUSD + costosEnvio.usd;
-  const totalUYU = subtotalUYU + costosEnvio.uyu;
-
-  const subtotalUSDDisplay = document.getElementById("subtotalUSD");
-  const subtotalUYUDisplay = document.getElementById("subtotalUYU");
-  const costoEnvioUSDDisplay = document.getElementById("costoEnvioUSD");
-  const costoEnvioUYUDisplay = document.getElementById("costoEnvioUYU");
-  const totalUSDDisplay = document.getElementById("totalUSD");
-  const totalUYUDisplay = document.getElementById("totalUYU");
-
-  subtotalUSDDisplay.textContent = subtotalUSD > 0 ? `Subtotal (USD): $${subtotalUSD.toFixed(2)}` : "";
-  subtotalUYUDisplay.textContent = subtotalUYU > 0 ? `Subtotal (UYU): $${subtotalUYU.toFixed(2)}` : "";
-  costoEnvioUSDDisplay.textContent = subtotalUSD > 0 ? `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}` : "";
-  costoEnvioUYUDisplay.textContent = subtotalUYU > 0 ? `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}` : "";
-  totalUSDDisplay.textContent = subtotalUSD > 0 ? `Total (USD): $${totalUSD.toFixed(2)}` : "";
-  totalUYUDisplay.textContent = subtotalUYU > 0 ? `Total (UYU): $${totalUYU.toFixed(2)}` : "";
-}
 
 function calcularCostos() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -176,6 +126,55 @@ function calcularCostos() {
 
   mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio);
 }
+
+//Parte 3
+
+
+function calcularTotales(carrito) {
+  let subtotalUSD = 0;
+  let subtotalUYU = 0;
+
+  carrito.forEach(producto => {
+      if (producto.currency === "USD") {
+          subtotalUSD += producto.cost * producto.quantity;
+      } else if (producto.currency === "UYU") {
+          subtotalUYU += producto.cost * producto.quantity;
+      } else {
+          console.error("Moneda no válida para el producto:", producto);
+      }
+  });
+
+  return { subtotalUSD, subtotalUYU };
+}
+
+
+function mostrarTotales(subtotalUSD, subtotalUYU, costosEnvio) {
+  const totalUSD = subtotalUSD + costosEnvio.usd;
+  const totalUYU = subtotalUYU + costosEnvio.uyu;
+
+  document.getElementById("subtotalUSD").textContent = `Subtotal (USD): $${subtotalUSD.toFixed(2)}`;
+  document.getElementById("subtotalUYU").textContent = `Subtotal (UYU): $${subtotalUYU.toFixed(2)}`;
+  document.getElementById("costoEnvioUSD").textContent = `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}`;
+  document.getElementById("costoEnvioUYU").textContent = `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}`;
+  document.getElementById("totalUSD").textContent = `Total (USD): $${totalUSD.toFixed(2)}`;
+  document.getElementById("totalUYU").textContent = `Total (UYU): $${totalUYU.toFixed(2)}`;
+
+  const subtotalUSDDisplay = document.getElementById("subtotalUSD");
+  const subtotalUYUDisplay = document.getElementById("subtotalUYU");
+  const costoEnvioUSDDisplay = document.getElementById("costoEnvioUSD");
+  const costoEnvioUYUDisplay = document.getElementById("costoEnvioUYU");
+  const totalUSDDisplay = document.getElementById("totalUSD");
+  const totalUYUDisplay = document.getElementById("totalUYU");
+
+  subtotalUSDDisplay.textContent = subtotalUSD > 0 ? `Subtotal (USD): $${subtotalUSD.toFixed(2)}` : "";
+  subtotalUYUDisplay.textContent = subtotalUYU > 0 ? `Subtotal (UYU): $${subtotalUYU.toFixed(2)}` : "";
+  costoEnvioUSDDisplay.textContent = subtotalUSD > 0 ? `Costo de envío (USD): $${costosEnvio.usd.toFixed(2)}` : "";
+  costoEnvioUYUDisplay.textContent = subtotalUYU > 0 ? `Costo de envío (UYU): $${costosEnvio.uyu.toFixed(2)}` : "";
+  totalUSDDisplay.textContent = subtotalUSD > 0 ? `Total (USD): $${totalUSD.toFixed(2)}` : "";
+  totalUYUDisplay.textContent = subtotalUYU > 0 ? `Total (UYU): $${totalUYU.toFixed(2)}` : "";
+}
+
+
 
 document.getElementById("select-delivery").addEventListener("change", calcularCostos);
 

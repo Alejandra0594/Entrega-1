@@ -84,7 +84,7 @@ function mostrarComentarios(comentarios, clear = true) {
 
 // Función para obtener los comentarios desde la API
 function fetchProductComments(productId) {
-    const commentsUrl = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+    const commentsUrl = `http://localhost:3001/products_comments/${productId}`;
 
     fetch(commentsUrl)
         .then(response => response.json())
@@ -97,7 +97,7 @@ function fetchProductComments(productId) {
 // Paso 3 parte 2,Dentro de la función fetchProductInfo, se añadió la llamada a mostrarComentarios para pasar el array de comentarios del producto,
 // Función que accede a la API para obtener la data del producto
 function fetchProductInfo(productId) {
-    const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+    const url = `http://localhost:3001/products/${productId}`;
 
     fetch(url)
         .then(response => response.json())
@@ -169,7 +169,7 @@ document.getElementById("submit-review").addEventListener("click", function() {
 //Chiara
 // Función para obtener los productos relacionados desde la API
 function fetchRelatedProducts(productId) {
-    const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+    const url = `http://localhost:3001/products/${productId}`;
 
     fetch(url)
         .then(response => response.json())

@@ -62,7 +62,7 @@ function showProducts(searchTerm = "") {
 
 // Función para obtener los datos de productos desde la API
 function fetchProducts(CatID) {
-    const url = `https://japceibal.github.io/emercado-api/cats_products/${CatID}.json`;
+    const url = `http://localhost:3001/categories/${CatID}`;
 
     fetch(url)
         .then(response => response.json())

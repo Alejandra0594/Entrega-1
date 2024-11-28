@@ -2,11 +2,109 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const jwt = require("jsonwebtoken");
+const SECRET_KEY = "CLAVE ULTRA SECRETA";
 
 const app = express();
 app.use(cors());
+app.use(express.json()); // Permite analizar cuerpos JSON
+
 
 const PORT = 3001;
+// post para la configuraciòn del token
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+    if (username === "admin" && password === "admin") {
+      const token = jwt.sign({ username }, SECRET_KEY);
+      res.status(200).json({ token });
+    } else {
+      res.status(401).json({ message: "Usuario y/o contraseña incorrecto" });
+    }
+  }); 
+  
+
+
+  // Middleware que autoriza a realizar peticiones a /cart
+app.use("/cart", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+// Middleware que autoriza a realizar peticiones a /categories
+app.use("/categories", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+  // Middleware que autoriza a realizar peticiones a /categories/:id
+app.use("/categories/:id", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+  // Middleware que autoriza a realizar peticiones a /products/:id
+app.use("/products/:id", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+  // Middleware que autoriza a realizar peticiones a /products_comments/:id
+app.use("/products_comments/:id", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+    // Middleware que autoriza a realizar peticiones a /sell
+app.use("/sell", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+  // Middleware que autoriza a realizar peticiones a /user_cart
+app.use("/user_cart", (req, res, next) => {
+    try {
+      const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+      console.log(decoded);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Usuario no autorizado" });
+    }
+  });
+
+
+
+
+
 
 // Ruta para devolver todos los productos de `cart`
 app.get('/cart', (req, res) => {

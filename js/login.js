@@ -14,8 +14,25 @@ document.getElementById("formLogin").addEventListener("submit", function (event)
             sessionStorage.setItem('sesion', 'true');  // Guarda que el usuario inició sesión
             sessionStorage.setItem('nombreUsuario', email);  // Guarda el email del usuario
 
-            // Redirige al usuario a la página principal (index.html)
-            window.location.href = 'my-profile.html';
+//Aca va el fetch
+ fetch('http://localhost:3001/login', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username:email, password })
+    }).then(response => {
+        if (response.ok){
+          return response.json(); 
+        }
+        else {
+            console.log("algo fallo");
+        }
+    }).then(response=> {
+        localStorage.setItem("token", response.token);
+        window.location.href = 'my-profile.html';
+    });
+
         } else {
             // Muestra una alerta de error si el email no tiene un formato válido
             showAlertEmail();
@@ -51,3 +68,4 @@ function showAlertEmail() {
         alertEmail.classList.remove('show');
     }, 3000); // Oculta la alerta después de 3 segundos
 }
+

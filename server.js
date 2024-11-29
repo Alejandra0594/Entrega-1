@@ -14,7 +14,7 @@ const PORT = 3001;
 // post para la configuraciòn del token
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    if (username === "admin" && password === "admin") {
+    if (username === "admin@admin.com" && password === "admin") {
       const token = jwt.sign({ username }, SECRET_KEY);
       res.status(200).json({ token });
     } else {

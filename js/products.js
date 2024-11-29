@@ -64,7 +64,7 @@ function showProducts(searchTerm = "") {
 function fetchProducts(CatID) {
     const url = `http://localhost:3001/categories/${CatID}`;
 
-    fetch(url)
+    fetch(url, {headers:{'access-token':localStorage.getItem('token')}})
         .then(response => response.json())
         .then(data => {
             currentProductsArray = data.products;

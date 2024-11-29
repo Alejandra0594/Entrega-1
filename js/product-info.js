@@ -86,7 +86,7 @@ function mostrarComentarios(comentarios, clear = true) {
 function fetchProductComments(productId) {
     const commentsUrl = `http://localhost:3001/products_comments/${productId}`;
 
-    fetch(commentsUrl)
+    fetch(commentsUrl, {headers:{'access-token':localStorage.getItem('token')}})
         .then(response => response.json())
         .then(comments => {
             mostrarComentarios(comments);  // Mostrar los comentarios obtenidos
@@ -99,7 +99,7 @@ function fetchProductComments(productId) {
 function fetchProductInfo(productId) {
     const url = `http://localhost:3001/products/${productId}`;
 
-    fetch(url)
+    fetch(url, {headers:{'access-token':localStorage.getItem('token')}})
         .then(response => response.json())
         .then(data => {
             productoActual = data; // Guardar la data del producto
@@ -171,7 +171,7 @@ document.getElementById("submit-review").addEventListener("click", function() {
 function fetchRelatedProducts(productId) {
     const url = `http://localhost:3001/products/${productId}`;
 
-    fetch(url)
+    fetch(url, {headers:{'access-token':localStorage.getItem('token')}})
         .then(response => response.json())
         .then(data => {
             const relatedProducts = data.relatedProducts; // Obtener los productos relacionados

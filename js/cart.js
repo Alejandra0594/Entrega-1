@@ -330,8 +330,10 @@ if (carrito.length === 0) {
     }
   }
 
+  localStorage.removeItem("carrito");
   // Si todas las validaciones pasan, se muestra el mensaje de éxito
   alert('¡Compra finalizada con éxito! Gracias por su compra.');
+  location.reload();
 }
 
 
